@@ -1,4 +1,4 @@
-require 'rails helper'
+require 'rails_helper'
 
 describe "unregistered user visits items index" do
 
