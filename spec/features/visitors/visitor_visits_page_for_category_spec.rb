@@ -7,7 +7,7 @@ describe "Visitor views a page for specific category" do
     item_1, item_2 = create_list(:item, 2, category: category_1)
     item_3, item_4 = create_list(:item, 2, category: category_2)
 
-    visit "/#{category_1.name}"
+    visit "/#{category_1.slug}"
 
     expect(page).to have_content(item_1.name)
     expect(page).to have_content(item_1.price)
