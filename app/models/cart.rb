@@ -19,4 +19,8 @@ class Cart
     cart_items.map {|item, count| item.price * count}.sum
   end
 
+  def remove_item(id)
+    contents.delete(id.to_s)
+  end
+
 end
