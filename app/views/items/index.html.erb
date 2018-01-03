@@ -6,7 +6,7 @@
     <%= item.name %>
     <img class="lightsaber" src=<%= item.image %>>
     <%= number_to_currency(item.price) %>
-    <%= link_to "Add to cart", cart_path %>
+    <%= button_to "Add To Cart", cart_path(item_id: item.id) %>
   </div>
   <% end %>
 </div>

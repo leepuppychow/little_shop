@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   get "/login", to: "sessions#new"
   post '/login', to: "sessions#create"
   get '/logout', to: "sessions#destroy"
-  get '/cart', to: "cart#show"
-  resources :items, only: [:index]
 
+  # get '/cart', to: "cart#show"
+  resource :cart, only: [:create, :show]
+  resources :items, only: [:index]
   get "/:category_slug", to: "categories#show"
 
 end
