@@ -1,5 +1,13 @@
 class Category < ApplicationRecord
-  validates :name, presence: true 
+  before_save :generate_slug
+  validates :name, presence: true
   has_many :items
+
+
+  private
+
+    def generate_slug
+      self.slug = name.parameterize
+    end
 
 end

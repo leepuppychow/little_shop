@@ -21,6 +21,10 @@
     </div>
   </div>
   <body>
+    <% flash.each do |type, message| %>
+      <%= content_tag :div, message, class: type %>
+    <% end %>
+    
     <%= yield %>
   </body>
 </html>

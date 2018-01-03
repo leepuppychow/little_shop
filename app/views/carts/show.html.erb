@@ -1,0 +1,10 @@
+<h1>My Cart</h1>
+
+<% @items.each do |item, count| %>
+  <%= item.name %>
+  <%= item.description %>
+  <%= number_to_currency(item.price) %>
+  Count: <%= count %>
+<% end %>
+
+Total Cost: <%= number_to_currency(@cart.total_cost) %>
