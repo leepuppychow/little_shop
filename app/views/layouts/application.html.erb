@@ -6,8 +6,20 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
+  <div class="nav_bar">
+    <div class="">
+      <h3 class="title">Grievous' Lightsaber Emporium</h3>
+    </div>
+    <div class="nav_icons">
+      <%= link_to "Logout", logout_path, id: "nav_bar_link" %>
+      <a href="/items"> <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/957347-200.png" class="invert" id="saber"></a>
+      <a href="/login" class: "nav_bar_link"><i class="fa fa-user-circle-o fa-2x" id="nav_bar_link" aria-hidden="true"></i></a>
+      <a href="/" class: "nav_bar_link"><i class="fa fa-home fa-2x" id="nav_bar_link" aria-hidden="true"></i></a>
+    </div>
+  </div>
   <body>
     <%= yield %>
   </body>
