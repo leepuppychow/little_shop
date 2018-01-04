@@ -5,7 +5,7 @@
   <%= item.description %>
   <%= number_to_currency(item.price) %>
   Count: <%= count %>
-
+  Subtotal: <%= number_to_currency(count * item.price) %>
   <%= form_tag("/cart", method: "put") do %>
     <%= hidden_field_tag "item_id", item.id %>
     <%= label_tag "Quantity" %>

@@ -27,6 +27,7 @@ describe "As a visitor when I visit any page with an item on it" do
       expect(page).to have_content "My Cart"
       expect(page).to have_content item.name
       expect(page).to have_content item.description
+      expect(page).to have_content "Subtotal: $200.00"
       expect(page).to have_content "$100.00"
       expect(page).to have_content "Count: 2"
       expect(page).to have_content "Total Cost: $200.00"

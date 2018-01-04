@@ -38,6 +38,7 @@ describe "As a visitor when I visit my cart with items in it" do
       expect(current_path).to eq("/cart")
       expect(page).to have_content(@item.name)
       expect(page).to have_content("Count: 5")
+      expect(page).to have_content("Subtotal: $500.00")
       expect(page).to have_content("Total Cost: $500.00")
     end
   end
@@ -55,6 +56,7 @@ describe "As a visitor when I visit my cart with items in it" do
       expect(current_path).to eq("/cart")
       expect(page).to have_content(@item.name)
       expect(page).to have_content("Count: 1")
+      expect(page).to have_content("Subtotal: $100.00")
       expect(page).to have_content("Total Cost: $100.00")
     end
   end
