@@ -12,7 +12,7 @@ class Cart
   end
 
   def add_item(id)
-    contents[id.to_s] += 1
+    contents[id.to_s] = (contents[id.to_s] || 0) + 1
   end
 
 
