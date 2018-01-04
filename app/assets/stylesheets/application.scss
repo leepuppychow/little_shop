@@ -27,10 +27,18 @@ body {
   display: flex;
   flex-flow: row;
   justify-content: space-between;
-  height: 50px;
+  height: 70px;
   .nav_icons {
     display: flex;
   }
+  #title-bar {
+    display: row;
+  }
+
+  #headshot {
+    height: 95%;
+  }
+
   #nav_bar_link {
     text-decoration: none;
     color: white;
@@ -45,7 +53,6 @@ body {
 }
 
 .title {
-  margin-left: 10px;
   color: white;
 }
 
