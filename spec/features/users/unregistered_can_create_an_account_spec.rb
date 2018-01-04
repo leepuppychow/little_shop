@@ -19,7 +19,6 @@ describe "unregistered user can create an account" do
 
       expect(current_path).to eq(dashboard_path)
       expect(page).to have_content("Logged in as KillaCam")
-      expect(page).to have_content("Logout")
       expect(page).to have_no_content("Login")
     end
   end

@@ -12,8 +12,7 @@ describe "As a visitor when I visit the /cart path" do
         click_on "Add To Cart"
         click_on "Add To Cart"
 
-        # click_on "CART"
-        visit cart_path
+        click_on "View Cart"
 
         expect(page).to have_content "Login or Create Account to Checkout"
 
