@@ -17,26 +17,28 @@ describe "As a visitor when I visit my cart with items in it" do
 
       expect(page).to have_content("#{@item.name} was removed from your cart!")
       expect(current_path).to eq("/cart")
+
+      visit "/cart"
+
+      expect(page).to have_no_content(@item.name)
     end
   end
 
-  describe "When I click on View Cart" do
-    xit "should take me to a Cart view with all items I have added" do
-      item = create(:item)
+  describe "When I click on increase the quantity of an item" do
+    it "the change should be reflected in my cart" do
+      visit "/cart"
 
-      visit items_path
+      expect(page).to have_content(@item.name)
+      expect(page).to have_content("Count: 1")
 
-      click_on "Add To Cart"
-      click_on "Add To Cart"
+      fill_in "quantity", with: 5
+      click_button "Update"
 
-      visit cart_path
-
-      expect(page).to have_content "My Cart"
-      expect(page).to have_content item.name
-      expect(page).to have_content item.description
-      expect(page).to have_content "$100.00"
-      expect(page).to have_content "Count: 2"
-      expect(page).to have_content "Total Cost: $200.00"
+      expect(current_path).to eq("/cart")
+      expect(page).to have_content(@item.name)
+      expect(page).to have_content("Count: 5")
+      expect(page).to have_content("Total Cost: $500.00")
+      save_and_open_page
     end
   end
 end

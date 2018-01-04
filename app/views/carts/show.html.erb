@@ -5,6 +5,14 @@
   <%= item.description %>
   <%= number_to_currency(item.price) %>
   Count: <%= count %>
+
+  <%= form_tag("/cart", method: "put") do %>
+    <%= hidden_field_tag "item_id", item.id %>
+    <%= label_tag "Quantity" %>
+    <%= number_field_tag :quantity %>
+    <%= submit_tag "Update" %>
+  <% end %>
+
   <%= link_to "Remove Item", cart_path(item_id: item.id), method: :delete %>
 <% end %>
 
