@@ -16,7 +16,6 @@ describe "when a registered user visits the root page" do
 
     expect(current_path).to eq(dashboard_path)
     expect(page).to have_content("Logged in as #{user.username}")
-    expect(page).to have_content("Logout")
     expect(page).to have_no_content("Login")
   end
 end

@@ -1,0 +1,16 @@
+require "rails_helper"
+
+describe "A visitor views an individual item" do
+  xit "visitor sees that item's information" do
+    item1, item2 = create_list(:item, 2)
+
+    visit item_path(item)
+
+    expect(current_path).to eq(item_path(item1))
+    expect(page).to have_content(item1.name)
+    expect(page).to have_content(item1.description)
+    expect(page).to have_content(item1.price)
+    expect(page).to have_content("Add to Cart")
+    expect(page).to have_no_content(item2.name)
+  end
+end
