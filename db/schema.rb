@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180104213818) do
+ActiveRecord::Schema.define(version: 20180104223942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,22 +29,22 @@ ActiveRecord::Schema.define(version: 20180104213818) do
     t.index ["category_id"], name: "index_items_on_category_id"
   end
 
-  create_table "joins_table_orders_items", force: :cascade do |t|
-    t.bigint "order_id"
-    t.bigint "item_id"
-    t.string "address"
-    t.float "original_price"
-    t.index ["item_id"], name: "index_joins_table_orders_items_on_item_id"
-    t.index ["order_id"], name: "index_joins_table_orders_items_on_order_id"
-  end
-
   create_table "orders", force: :cascade do |t|
     t.string "status"
     t.float "total_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.string "address"
     t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "orders_items", force: :cascade do |t|
+    t.bigint "order_id"
+    t.bigint "item_id"
+    t.float "original_price"
+    t.index ["item_id"], name: "index_orders_items_on_item_id"
+    t.index ["order_id"], name: "index_orders_items_on_order_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 20180104213818) do
   end
 
   add_foreign_key "items", "categories"
-  add_foreign_key "joins_table_orders_items", "items"
-  add_foreign_key "joins_table_orders_items", "orders"
   add_foreign_key "orders", "users"
+  add_foreign_key "orders_items", "items"
+  add_foreign_key "orders_items", "orders"
 end

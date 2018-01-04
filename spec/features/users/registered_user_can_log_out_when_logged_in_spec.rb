@@ -10,6 +10,8 @@ describe "When a registered user is logged in" do
       fill_in "password", with: user.password
       click_on "Submit"
 
+      visit dashboard_path
+
       click_on "Logout"
 
       expect(current_path).to eq("/")
