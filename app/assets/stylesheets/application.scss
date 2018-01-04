@@ -27,26 +27,45 @@ body {
   display: flex;
   flex-flow: row;
   justify-content: space-between;
-  height: 50px;
+  height: 90px;
   .nav_icons {
     display: flex;
   }
+  #title-bar {
+    display: row;
+  }
+
+  #headshot {
+    height: 95%;
+    border-style: dashed;
+    border-color: black;
+    border-width: 2px;
+
+  }
+
   #nav_bar_link {
     text-decoration: none;
     color: white;
     margin-right: 10px;
-    margin-top: 10px;
+    margin-top: 28px;
     padding: 0 20px;
   }
   #saber {
+    padding-top: 23px;
     height: 45px;
-    width: 50px;
+    width: 60px;
+  }
+  #user-title {
+    color: white;
+    padding-top: 40px;
   }
 }
 
 .title {
-  margin-left: 10px;
   color: white;
+  padding-right: 150px;
+  width: 102%;
+  font-family: "Arial Black", Gadget, sans-serif;
 }
 
 .invert {
