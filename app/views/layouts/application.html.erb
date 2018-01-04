@@ -10,8 +10,8 @@
   </head>
 
   <div class="nav_bar">
+    <img id="headshot" src="https://2.bp.blogspot.com/-UT19BAbWqVc/VWnwerFErMI/AAAAAAABThg/HVWKBSPx3OQ/s1600/1kbj-1432600430-241727-full.jpg">
     <div id="title-bar">
-      <!-- <img id="headshot" src="https://2.bp.blogspot.com/-UT19BAbWqVc/VWnwerFErMI/AAAAAAABThg/HVWKBSPx3OQ/s1600/1kbj-1432600430-241727-full.jpg"> -->
       <h1 class="title">Grievous' Lightsaber Emporium</h1>
     </div>
     <div class="nav_icons">
@@ -21,7 +21,7 @@
         <a href="/cart" class: "nav_bar_link"><i class="fa fa-shopping-cart fa-2x" id="nav_bar_link" aria-hidden="true"></i></a>
         <a href="/login" class: "nav_bar_link" title="Login"><i class="fa fa-user-circle-o fa-2x" id="nav_bar_link" aria-hidden="true"></i></a>
       <% elsif current_user %>
-        <h5>Logged in as <%= current_user.username %></h5>
+        <h5 id=user-title>Logged in as <%= current_user.username %></h5>
         <a href="/items"> <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/957347-200.png" class="invert" id="saber"></a>
         <a href="/dashboard" class: "nav_bar_link"><i class="fa fa-desktop fa-2x" id="nav_bar_link" aria-hidden="true"></i></a>
         <a href="/" class: "nav_bar_link"><i class="fa fa-home fa-2x" id="nav_bar_link" aria-hidden="true"></i></a>
