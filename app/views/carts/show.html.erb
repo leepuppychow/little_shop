@@ -17,3 +17,9 @@
 <% end %>
 
 Total Cost: <%= number_to_currency(@cart.total_cost) %>
+
+<% if current_user %>
+  <%= link_to "Checkout", checkout_path %>
+<% else %>
+  <%= link_to "Login or Create Account to Checkout", login_path %>
+<% end %>

@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+user1 = User.create!(username: "KillaCam", password: "password")
+
+category1 = Category.create!(name: "Master")
+category2 = Category.create!(name: "Padawan")
+
+item1 = Item.create!(name: "Green Lightsaber", description: "the best", price: 100.0, image: "http://images.buystarwarstoys.com/products/9288/1-1/ahsoka-tano-toy-lightsaber.jpg", category: category1)
+item2 = Item.create!(name: "Blue Lightsaber", description: "the second best", price: 200.0, image: "https://target.scene7.com/is/image/Target/17133411?wid=520&hei=520&fmt=pjpeg", category: category2)
