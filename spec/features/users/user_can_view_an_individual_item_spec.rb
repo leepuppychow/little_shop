@@ -1,10 +1,10 @@
 require "rails_helper"
 
 describe "A visitor views an individual item" do
-  xit "visitor sees that item's information" do
+  it "visitor sees that item's information" do
     item1, item2 = create_list(:item, 2)
 
-    visit item_path(item)
+    visit item_path(item1)
 
     expect(current_path).to eq(item_path(item1))
     expect(page).to have_content(item1.name)

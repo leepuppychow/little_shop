@@ -4,7 +4,7 @@
   <% @items.each do |item| %>
   <div class="item_attributes">
     <%= item.name %>
-    <img class="lightsaber" src=<%= item.image %>>
+    <%= link_to(image_tag(image_path("#{item.image}")), item_path(item)) %>
     <%= number_to_currency(item.price) %>
     <%= button_to "Add To Cart", cart_path(item_id: item.id) %>
   </div>
