@@ -9,7 +9,7 @@ describe "As a visitor when I visit any page with an item on it" do
 
       click_on "Add To Cart"
 
-      expect(page).to have_content("#{item.name} was added to your cart!")
+      expect(page).to have_content("#{item.name} added to your cart!")
     end
   end
 

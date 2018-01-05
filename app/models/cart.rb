@@ -5,6 +5,10 @@ class Cart
     @contents = contents || Hash.new(0)
   end
 
+  def count_of(id)
+    contents[id.to_s]
+  end
+
   def cart_items
     contents.transform_keys do |key|
       Item.find(key.to_i)

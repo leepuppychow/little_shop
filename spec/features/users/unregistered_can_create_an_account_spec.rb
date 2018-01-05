@@ -17,8 +17,8 @@ describe "unregistered user can create an account" do
       fill_in "user[password]", with: "password"
       click_on "Sign up"
 
+      expect(page).to have_content("KillaCam was created")
       expect(current_path).to eq(dashboard_path)
-      expect(page).to have_content("Logged in as KillaCam")
       expect(page).to have_no_content("Login")
     end
   end
