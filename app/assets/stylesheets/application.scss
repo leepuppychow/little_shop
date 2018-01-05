@@ -49,16 +49,26 @@ body {
     margin-right: 10px;
     margin-top: 28px;
     padding: 0 20px;
+    size: inherit;
   }
   #saber {
-    padding-top: 23px;
+    padding-top: 15px;
     height: 45px;
     width: 60px;
+
   }
   #user-title {
     color: white;
     padding-top: 40px;
   }
+  .icon-title {
+    font-size: 20px;
+  }
+  #icon-title {
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+ }
 }
 
 .title {
@@ -86,6 +96,16 @@ body {
       margin: 10px;
     }
   }
+}
+
+.cart-image {
+  height: 80px;
+  width: auto;
+}
+
+.item-image {
+  height: 300px;
+  width: auto;
 }
 
 .flash-remove-item {

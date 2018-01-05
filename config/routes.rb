@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :show]
 
+  resources :categories, only: [:index]
+
   get "/:category_slug", to: "categories#show"
 
 end

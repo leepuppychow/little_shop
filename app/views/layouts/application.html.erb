@@ -16,13 +16,15 @@
     </div>
     <div class="nav_icons">
       <% if current_user.nil? %>
-        <a href="/items"> <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/957347-200.png" class="invert" id="saber"></a>
-        <a href="/" class: "nav_bar_link"><i class="fa fa-home fa-2x" id="nav_bar_link" aria-hidden="true"></i></a>
-        <a href="/cart" class: "nav_bar_link" title="View Cart"><i class="fa fa-shopping-cart fa-2x" id="nav_bar_link" aria-hidden="true"></i></a>
-        <a href="/login" class: "nav_bar_link" title="Login"><i class="fa fa-user-circle-o fa-2x" id="nav_bar_link" aria-hidden="true"></i></a>
+        <a href="/items" class: "nav_bar_link"> <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/957347-200.png" class="invert" id="saber"><div id="icon-title">Shop</div></a>
+        <a href="/categories" class: "nav_bar_link"><i class="fa fa-sitemap fa-2x" id="nav_bar_link" aria-hidden="true"><div class="icon-title">Categories</div></i></a>
+        <a href="/" class: "nav_bar_link"><i class="fa fa-home fa-2x" id="nav_bar_link" aria-hidden="true"><div class="icon-title">Home</div></i></a>
+        <a href="/cart" class: "nav_bar_link" title="View Cart"><i class="fa fa-shopping-cart fa-2x" id="nav_bar_link" aria-hidden="true"><div class="icon-title">Cart</div></i></a>
+        <a href="/login" class: "nav_bar_link" title="Login"><i class="fa fa-user-circle-o fa-2x" id="nav_bar_link" aria-hidden="true"><div class="icon-title">Login</div></i></a>
       <% elsif current_user %>
         <h5 id=user-title>Logged in as <%= current_user.username %></h5>
         <a href="/items"> <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/957347-200.png" class="invert" id="saber"></a>
+        <a href="/categories" class: "nav_bar_link"><i class="fa fa-sitemap fa-2x" id="nav_bar_link" aria-hidden="true"></i><div class="icon-title"></div></i></a>
         <a href="/dashboard" class: "nav_bar_link"><i class="fa fa-desktop fa-2x" id="nav_bar_link" aria-hidden="true"></i></a>
         <a href="/" class: "nav_bar_link"><i class="fa fa-home fa-2x" id="nav_bar_link" aria-hidden="true"></i></a>
         <a href="/cart" class: "nav_bar_link" title="View Cart"><i class="fa fa-shopping-cart fa-2x" id="nav_bar_link" aria-hidden="true"></i></a>

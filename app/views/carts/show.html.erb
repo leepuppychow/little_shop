@@ -1,19 +1,24 @@
 <h1>My Cart</h1>
 
 <% @items.each do |item, count| %>
-  <%= item.name %>
-  <%= item.description %>
-  <%= number_to_currency(item.price) %>
-  Count: <%= count %>
-  Subtotal: <%= number_to_currency(count * item.price) %>
-  <%= form_tag("/cart", method: "put") do %>
-    <%= hidden_field_tag "item_id", item.id %>
-    <%= label_tag "Quantity" %>
-    <%= number_field_tag :quantity %>
-    <%= submit_tag "Update" %>
-  <% end %>
+  <% if count > 0 %>
+    <%= link_to item_path(item) do %>
+       <%= image_tag "#{item.image}", class: "cart-image" %>
+    <% end %>
+    <%= item.name %>
+    <%= item.description %>
+    <%= number_to_currency(item.price) %>
+    Count: <%= count %>
+    Subtotal: <%= number_to_currency(count * item.price) %>
+    <%= form_tag("/cart", method: "put") do %>
+      <%= hidden_field_tag "item_id", item.id %>
+      <%= label_tag "Quantity" %>
+      <%= number_field_tag :quantity %>
+      <%= submit_tag "Update" %>
+    <% end %>
 
-  <%= link_to "Remove Item", cart_path(item_id: item.id), method: :delete %>
+    <%= link_to "Remove Item", cart_path(item_id: item.id), method: :delete %>
+  <% end %>
 <% end %>
 
 Total Cost: <%= number_to_currency(@cart.total_cost) %>
