@@ -1,0 +1,20 @@
+<h1>My Orders</h1>
+
+<table>
+  <tr>
+    <th>Order ID</th>
+    <th>Status</th>
+    <th>Total Price</th>
+    <th>Address</th>
+    <th>Item Count</th>
+  </tr>
+<% @orders.each do |order| %>
+  <tr>
+    <th><%= order.id %></th>
+    <th><%= order.status %></th>
+    <th><%= number_to_currency(order.total_price) %></th>
+    <th><%= order.address %></th>
+    <th><%= order.items.count %></th>
+  </tr>
+<% end %>
+</table>
