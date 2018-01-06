@@ -103,10 +103,11 @@ a {
     display: flex;
     flex-flow: column wrap;
     align-items: center;
-    background-color: white;
+    background-color: rgba(211, 211, 211, .5);
     margin: 20px;
     border: solid black 2px;
     font-family: "Arial Black", Gadget, sans-serif;
+    padding: 0px 5px;
     .lightsaber {
       height: 300px;
       margin: 10px;
@@ -137,4 +138,5 @@ a {
   font-family: none;
   font-size: 13px;
   padding: 1px 5px;
+  background-color: white;
 }
