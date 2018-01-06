@@ -10,7 +10,7 @@ describe "A visitor views an individual item" do
     expect(page).to have_content(item1.name)
     expect(page).to have_content(item1.description)
     expect(page).to have_content(item1.price)
-    expect(page).to have_content("Add to Cart")
+    expect(page).to have_button("Add To Cart")
     expect(page).to have_no_content(item2.name)
   end
 end
