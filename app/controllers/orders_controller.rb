@@ -4,7 +4,6 @@ class OrdersController < ApplicationController
     @orders = current_user.orders
   end
 
-
   def create
     @order = Order.create!(status: "Ordered", user_id: current_user.id, created_at: Date.today, updated_at: Date.today, total_price: 0)
     # @cart.create_order_items(@order)
@@ -19,7 +18,11 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find(params[:id])
+    if current_user.id == Order.find(params[:id]).user_id
+      @order = Order.find(params[:id])
+    else
+      render_404
+    end
   end
 
 end
