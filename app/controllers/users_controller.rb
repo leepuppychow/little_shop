@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       flash[:notice] = "#{@user.username} was created"
-      redirect_to dashboard_path(id: @user.id)
+      redirect_to dashboard_path
     else
       flash[:notice] = "User was not created"
       render :new
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    if current_user && current_user.id == params[:id].to_i
+    if current_user
       @user = current_user
     else
       render_404
