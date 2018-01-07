@@ -22,7 +22,11 @@ class CartsController < ApplicationController
   end
 
   def update
-    session[:cart][(params[:item_id]).to_s] = (params[:quantity]).to_i
+    if params[:quantity].to_i <= 0
+      session[:cart].delete(params[:item_id].to_s)
+    else
+      session[:cart][(params[:item_id]).to_s] = (params[:quantity]).to_i
+    end
     redirect_to cart_path
   end
 

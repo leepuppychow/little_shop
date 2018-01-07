@@ -33,13 +33,15 @@
           </div>
         <%= link_to "Remove Item", cart_path(item_id: item.id), method: :delete %>
       </div>
+      <% else %>
+        <% @cart.remove_item(item.id) %>
       <% end %>
     </div>
     <% end %>
     <div id="total-cost">
       Total Cost: <%= number_to_currency(@cart.total_cost) %>
     </div>
-    <div id="checkout">    
+    <div id="checkout">
       <% if current_user %>
         <%= link_to "Checkout", orders_path, method: :post %>
       <% else %>
