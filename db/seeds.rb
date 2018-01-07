@@ -11,9 +11,9 @@ Category.delete_all
 Order.delete_all
 User.delete_all
 
-user1 = User.create!(username: "KillaCam", password: "password")
-user2 = User.create!(username: "Admin", password: "adminpassword", role: 1)
-user3 = User.create!(username: "Alex", password: "password")
+user1 = User.create!(username: "KillaCam", password: "password", full_name: "Killa Cam")
+user2 = User.create!(username: "Admin", password: "adminpassword", role: 1, full_name: "Admin")
+user3 = User.create!(username: "Alex", password: "password", full_name: "Alex")
 
 category1 = Category.create!(name: "Jedi Padawan")
 category2 = Category.create!(name: "Jedi Master")

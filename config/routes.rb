@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     get '/dashboard', to: "dashboard#index"
     get '/edit', to: "users#edit"
     patch '/edit', to: "users#update"
+    resources :orders, only: [:show]
   end
 
   get "/:category_slug", to: "categories#show"
