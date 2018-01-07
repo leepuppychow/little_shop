@@ -13,6 +13,10 @@ Rails.application.routes.draw do
   resources :categories, only: [:index]
   resources :orders, only: [:index, :create, :show]
 
+  namespace :admin do
+    get '/dashboard', to: "dashboard#index"
+  end
+
   get "/:category_slug", to: "categories#show"
 
 end

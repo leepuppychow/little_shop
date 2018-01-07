@@ -3,4 +3,5 @@ class User < ApplicationRecord
   validates_presence_of :username, :password
   has_many :orders
 
+  enum role: ["user", "admin"]
 end

@@ -12,13 +12,16 @@ describe "authenticated user cannot view another persons data" do
     it "should render a 404 page not found message" do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
 
-      visit "users/#{@user1.id}"
+      visit "/users/#{@user1.id}"
       expect(page).to have_content("Dashboard for #{@user1.username}")
 
-      visit dashboard_path
-      # save_and_open_page
-      byebug
+      visit "/users/#{@user2.id}"
       expect(page).to have_content("The page you were looking for doesn't exist")
+
+      visit order_path(@order2)
+      expect(page).to have_content("The page you were looking for doesn't exist")
+
+
     end
   end
 end

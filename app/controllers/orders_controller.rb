@@ -4,7 +4,6 @@ class OrdersController < ApplicationController
     @orders = current_user.orders
   end
 
-
   def create
     @order = Order.create!(status: "Ordered", user_id: current_user.id, created_at: Date.today, updated_at: Date.today, total_price: 0)
     # @cart.create_order_items(@order)
@@ -13,13 +12,17 @@ class OrdersController < ApplicationController
       oi.update(sub_total: oi.original_price * oi.quantity)
     end
     @order.update(total_price: OrderItem.total_price_of_order(@order))
-    # binding.pry
     flash[:notice] = "Order was successfully placed"
     @cart.contents.clear
     redirect_to orders_path
+  end
 
   def show
-    @order = Order.find(params[:id])
+    if current_user && current_user.id == Order.find(params[:id]).user_id
+      @order = Order.find(params[:id])
+    else
+      render_404
+    end
   end
 
 end
