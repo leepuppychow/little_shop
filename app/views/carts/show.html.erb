@@ -31,7 +31,6 @@
               <%= submit_tag "Update" %>
             <% end %>
           </div>
-
         <%= link_to "Remove Item", cart_path(item_id: item.id), method: :delete %>
       </div>
       <% end %>
@@ -40,11 +39,11 @@
     <div id="total-cost">
       Total Cost: <%= number_to_currency(@cart.total_cost) %>
     </div>
-    <div id="checkout">
-    <% if current_user %>
-      <%= button_to "Checkout", checkout_path %>
+    <div id="checkout">    
+      <% if current_user %>
+        <%= link_to "Checkout", orders_path, method: :post %>
       <% else %>
-      <%= link_to "Login or Create Account to Checkout", login_path %>
+        <%= link_to "Login or Create Account to Checkout", login_path %>
       <% end %>
     </div>
 </div>

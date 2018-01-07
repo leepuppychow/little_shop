@@ -25,8 +25,7 @@ describe "As a visitor when I visit the /cart path" do
         click_on "Submit"
 
         expect(current_path).to eq dashboard_path
-
-        click_on "CART"
+        click_on "Cart"
 
         expect(page).to have_content item.name
         expect(page).to have_content item.description
