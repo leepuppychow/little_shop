@@ -3,5 +3,5 @@
 <% @category.items.each do |item| %>
   <%= item.name %>
   <%= item.price %>
-  <%= item.image %>
+  <%= image_tag item.image, class: "item-image" %>
 <% end %>
