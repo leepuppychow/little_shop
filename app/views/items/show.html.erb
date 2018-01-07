@@ -5,4 +5,8 @@
 <%= image_tag(@item.image,  class: "item-image") %>
 <%= @item.description %>
 <%= @item.price %>
-<%= button_to "Add To Cart", cart_path(item_id: @item.id) %>
+<% if @item.status == "active" %>
+  <%= button_to "Add To Cart", cart_path(item_id: @item.id) %>
+<% elsif @item.status == "retired" %>
+  <p class="retired-button">Item Retired</p>
+<%end%>

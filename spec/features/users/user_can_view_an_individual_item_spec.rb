@@ -11,6 +11,7 @@ describe "A visitor views an individual item" do
     expect(page).to have_content(item1.description)
     expect(page).to have_content(item1.price)
     expect(page).to have_selector(:link_or_button, "Add To Cart")
+    # expect(page).to have_button("Add To Cart")
     expect(page).to have_no_content(item2.name)
   end
 end

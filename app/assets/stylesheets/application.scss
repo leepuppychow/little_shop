@@ -40,7 +40,10 @@ body {
     border-style: dashed;
     border-color: black;
     border-width: 2px;
+  }
 
+  .nav_bar_link:hover {
+    color: white;
   }
 
   #nav_bar_link {
@@ -48,27 +51,37 @@ body {
     color: white;
     margin-right: 10px;
     margin-top: 28px;
-    padding: 0 20px;
-    size: inherit;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   #saber {
     padding-top: 15px;
     height: 45px;
     width: 60px;
-
-  }
-  #user-title {
-    color: white;
-    padding-top: 40px;
+    display: flex;
   }
   .icon-title {
     font-size: 20px;
+    color: #B22222;
+    transition-duration: 0.6s;
   }
   #icon-title {
   text-decoration: none;
   font-size: 20px;
-  color: white;
+  color: #B22222;
+  align-items: center;
+  transition-duration: 0.6s;
  }
+
+ #icon-title:hover, .icon-title:hover{
+   color: white;
+ }
+}
+
+a {
+  text-decoration: none;
 }
 
 .title {
@@ -90,10 +103,16 @@ body {
     display: flex;
     flex-flow: column wrap;
     align-items: center;
-    background-color: white;
+    background-color: rgba(211, 211, 211, .5);
+    margin: 20px;
+    border: solid black 2px;
+    font-family: "Arial Black", Gadget, sans-serif;
+    padding: 0px 5px;
     .lightsaber {
       height: 300px;
       margin: 10px;
+      padding: 20px;
+
     }
   }
 }
@@ -110,4 +129,14 @@ body {
 
 .flash-remove-item {
   background-color: green;
+}
+
+.retired-button {
+  border: solid black 1px;
+  position: relative;
+  bottom: 12px;
+  font-family: none;
+  font-size: 13px;
+  padding: 1px 5px;
+  background-color: white;
 }
