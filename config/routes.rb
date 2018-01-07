@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     get '/dashboard', to: "dashboard#index"
     get '/edit', to: "users#edit"
     patch '/edit', to: "users#update"
+    get '/analytics-dashboard', to: "analytics#index"
   end
 
   get "/:category_slug", to: "categories#show"
