@@ -1,0 +1,19 @@
+<h1>Order: <%= @order.id %></h1>
+<table>
+  <tr>
+    <th>Status</th>
+    <th><%= @order.status %></th>
+  </tr>
+  <tr>
+    <th>Order Placed On:</th>
+    <th><%= @order.created_at.strftime("%b %d, %Y") %></th>
+  </tr>
+  <tr>
+    <th>Order Total Price:</th>
+    <th><%= number_to_currency(@order.total_item_price) %></th>
+  </tr>
+</table>
+
+<% @order.item_count_and_subtotals.each do |item, info| %>
+  <p><%= link_to item, item_path(item) %> => <%= info %></p>
+<% end %>
