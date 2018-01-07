@@ -17,7 +17,6 @@ describe "authenticated user cannot view another persons data" do
 
       visit dashboard_path
       # save_and_open_page
-      byebug
       expect(page).to have_content("The page you were looking for doesn't exist")
     end
   end

@@ -13,10 +13,10 @@ class OrdersController < ApplicationController
       oi.update(sub_total: oi.original_price * oi.quantity)
     end
     @order.update(total_price: OrderItem.total_price_of_order(@order))
-    # binding.pry
     flash[:notice] = "Order was successfully placed"
     @cart.contents.clear
     redirect_to orders_path
+  end
 
   def show
     @order = Order.find(params[:id])
