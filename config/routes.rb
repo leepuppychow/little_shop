@@ -9,12 +9,14 @@ Rails.application.routes.draw do
 
   resource :cart, only: [:create, :show, :destroy, :update]
   resources :items, only: [:index, :show]
-  resources :users, only: [:new, :create, :show]
+  resources :users, only: [:new, :create, :show, :edit]
   resources :categories, only: [:index]
   resources :orders, only: [:index, :create, :show]
 
   namespace :admin do
     get '/dashboard', to: "dashboard#index"
+    get '/edit', to: "users#edit"
+    patch '/edit', to: "users#update"
   end
 
   get "/:category_slug", to: "categories#show"
