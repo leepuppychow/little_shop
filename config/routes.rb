@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :show]
   resources :users, only: [:new, :create, :show]
   resources :categories, only: [:index]
-  resources :orders, only: [:index, :create]
+  resources :orders, only: [:index, :create, :show]
 
   get "/:category_slug", to: "categories#show"
 

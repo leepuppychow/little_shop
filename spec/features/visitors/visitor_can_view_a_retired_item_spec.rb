@@ -21,7 +21,6 @@ describe "An item is retired" do
       item_1 = create(:item, status: "retired")
       item_2 = create(:item)
       visit items_path
-      save_and_open_page
 
       expect(page).to have_content(item_1.name)
       expect(page).to have_content(item_1.price)
