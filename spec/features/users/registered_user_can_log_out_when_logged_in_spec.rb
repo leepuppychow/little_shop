@@ -10,7 +10,7 @@ describe "When a registered user is logged in" do
       fill_in "password", with: user.password
       click_on "Submit"
 
-      visit dashboard_path
+      visit "users/#{user.id}"
 
       click_on "Logout"
 

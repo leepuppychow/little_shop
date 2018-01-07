@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       flash[:notice] = "Logged in as #{@user.username}"
-      redirect_to dashboard_path
+      verify_admin
     else
       render :new
     end
@@ -19,5 +19,15 @@ class SessionsController < ApplicationController
     flash[:notice] = "You have successfully logged out"
     redirect_to root_path
   end
+
+  private
+
+    def verify_admin
+      if current_admin?
+        redirect_to admin_dashboard_path
+      else
+        redirect_to dashboard_path
+      end
+    end
 
 end

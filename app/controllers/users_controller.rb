@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    if current_user && current_user.id == params[:id].to_i
+    if current_user
       @user = current_user
     else
       render_404

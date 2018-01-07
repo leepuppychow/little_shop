@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   namespace :admin do
     get '/dashboard', to: "dashboard#index"
+    get '/edit', to: "users#edit"
+    patch '/edit', to: "users#update"
   end
 
   get "/:category_slug", to: "categories#show"
