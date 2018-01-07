@@ -4,6 +4,7 @@ class OrdersController < ApplicationController
     @orders = current_user.orders
   end
 
+
   def create
     @order = Order.create!(status: "Ordered", user_id: current_user.id, created_at: Date.today, updated_at: Date.today, total_price: 0)
     # @cart.create_order_items(@order)
@@ -16,6 +17,9 @@ class OrdersController < ApplicationController
     flash[:notice] = "Order was successfully placed"
     @cart.contents.clear
     redirect_to orders_path
+
+  def show
+    @order = Order.find(params[:id])
   end
 
 end

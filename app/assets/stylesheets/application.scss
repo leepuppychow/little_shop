@@ -132,6 +132,7 @@ a {
 }
 
 .retired-button {
+  display: inline;
   border: solid black 1px;
   position: relative;
   bottom: 12px;
@@ -139,4 +140,92 @@ a {
   font-size: 13px;
   padding: 1px 5px;
   background-color: white;
+}
+
+#item-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  #item-block{
+    background-color: rgba(211, 211, 211, .9);
+    display:flex;
+    flex-flow: column;
+    align-items: center;
+    padding: 30px;
+    border: solid black 4px;
+    font-family: "Arial", Gadget, sans-serif;
+  #item-show-image {
+    height: 500px;
+    width: auto;
+  }
+  #item-description {
+    flex-wrap: wrap;
+    width: 400px;
+    justify-content: center;
+  }
+  #price-button-pair {
+    font-weight: bolder;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    width: 375px;
+    height: 45px;
+    border-bottom: double black 3px;
+  }
+ }
+}
+
+#cart-view {
+  display: flex;
+  flex-flow: column;
+  background-color: white;
+  padding: 7px;
+  #cart-item {
+    display: flex;
+    flex-flow: row;
+    background-color: rgba(211, 211, 211, .9);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-top: solid black 2px;
+    border-left: solid black 2px;
+    border-right: solid black 2px;
+    border-bottom: double black 4px;
+  }
+  #cart-item-name {
+    font-family: "Arial Black", Gadget, sans-serif;
+  }
+  #cart-item-show {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    #price-subtotal {
+      display: inline-flex;
+      justify-content: space-between;
+      width: 400px;
+      font-weight: bold;
+    }
+  }
+  #total-cost {
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 15px;
+    position: relative;
+    left: 85%;
+  }
+  #quantity-remove {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-end;
+    justify-content: space-around;
+    width: 100px;
+    padding: 10px;
+    margin: 20px;
+    #quantity {
+      width: 30px;
+    }
+  }
+  #checkout {
+    position: relative;
+    position:relative;
+    left: 85%;
+  }
 }

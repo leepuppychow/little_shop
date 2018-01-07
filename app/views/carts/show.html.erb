@@ -1,30 +1,49 @@
 <h1>My Cart</h1>
 
-<% @items.each do |item, count| %>
-  <% if count > 0 %>
-    <%= link_to item_path(item) do %>
-       <%= image_tag "#{item.image}", class: "cart-image" %>
+<div id="cart-view">
+    <% @items.each do |item, count| %>
+    <div id="cart-item">
+      <% if count > 0 %>
+        <%= link_to item_path(item) do %>
+           <%= image_tag "#{item.image}", class: "cart-image" %>
+        <% end %>
+        <div id="cart-item-show">
+          <p id="cart-item-name"><%= item.name%></p>
+          <%= item.description %><br><br>
+          <div id="price-subtotal">
+            <div>
+              Price: <%= number_to_currency(item.price) %>
+            </div>
+            <div>
+              Count: <%= count %>
+            </div>
+            <div>
+              Subtotal: <%= number_to_currency(count * item.price) %>
+            </div>
+          </div>
+        </div>
+        <div id="quantity-remove">
+          <div id="quantity">
+            <%= form_tag("/cart", method: "put") do %>
+              <%= hidden_field_tag "item_id", item.id %>
+              <%= label_tag "Quantity" %>
+              <%= number_field_tag :quantity %>
+              <%= submit_tag "Update" %>
+            <% end %>
+          </div>
+        <%= link_to "Remove Item", cart_path(item_id: item.id), method: :delete %>
+      </div>
+      <% end %>
+    </div>
     <% end %>
-    <%= item.name %>
-    <%= item.description %>
-    <%= number_to_currency(item.price) %>
-    Count: <%= count %>
-    Subtotal: <%= number_to_currency(count * item.price) %>
-    <%= form_tag("/cart", method: "put") do %>
-      <%= hidden_field_tag "item_id", item.id %>
-      <%= label_tag "Quantity" %>
-      <%= number_field_tag :quantity %>
-      <%= submit_tag "Update" %>
-    <% end %>
-
-    <%= link_to "Remove Item", cart_path(item_id: item.id), method: :delete %>
-  <% end %>
-<% end %>
-
-Total Cost: <%= number_to_currency(@cart.total_cost) %>
-
-<% if current_user %>
-  <%= link_to "Checkout", orders_path, method: :post %>
-<% else %>
-  <%= link_to "Login or Create Account to Checkout", login_path %>
-<% end %>
+    <div id="total-cost">
+      Total Cost: <%= number_to_currency(@cart.total_cost) %>
+    </div>
+    <div id="checkout">    
+      <% if current_user %>
+        <%= link_to "Checkout", orders_path, method: :post %>
+      <% else %>
+        <%= link_to "Login or Create Account to Checkout", login_path %>
+      <% end %>
+    </div>
+</div>
