@@ -28,4 +28,10 @@ class Cart
     contents.delete(id.to_s)
   end
 
+  # def create_order_items(order)
+  #   contents.each do |item_id, quantity|
+  #     order_item = OrderItem.create(order_id: order.id, item_id: Item.find(params[:item_id]).id, original_price: Item.find(params[:item_id]).price)
+  #   end
+  # end
+
 end
