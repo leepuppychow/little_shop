@@ -18,7 +18,7 @@ class OrdersController < ApplicationController
   end
 
   def show
-    if current_user.id == Order.find(params[:id]).user_id
+    if current_user && current_user.id == Order.find(params[:id]).user_id
       @order = Order.find(params[:id])
     else
       render_404
