@@ -6,9 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+Item.delete_all
+Category.delete_all
+Order.delete_all
+User.delete_all
 
 user1 = User.create!(username: "KillaCam", password: "password")
+user2 = User.create!(username: "Admin", password: "adminpassword", role: 1)
+user3 = User.create!(username: "Alex", password: "password")
 
 category1 = Category.create!(name: "Jedi Padawan")
 category2 = Category.create!(name: "Jedi Master")
