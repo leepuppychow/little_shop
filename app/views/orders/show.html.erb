@@ -6,7 +6,7 @@
   </tr>
   <tr>
     <th>Order Placed On:</th>
-    <th><%= @order.created_at %></th>
+    <th><%= @order.created_at.strftime("%b %d, %Y") %></th>
   </tr>
   <tr>
     <th>Order Total Price:</th>

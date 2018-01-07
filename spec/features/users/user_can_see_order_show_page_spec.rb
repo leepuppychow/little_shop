@@ -32,7 +32,7 @@ describe "When an authenticated user visits the /orders path" do
 
     it "should see the order status, order total price, and date order was submitted" do
       expect(page).to have_content @order.status
-      expect(page).to have_content @order.created_at
+      expect(page).to have_content @order.created_at.strftime("%b %d, %Y")
       expect(page).to have_content @order.total_item_price
     end
   end
