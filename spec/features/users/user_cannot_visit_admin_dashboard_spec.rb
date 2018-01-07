@@ -11,10 +11,10 @@ describe "registered user cannot visit an admins dashboard page" do
     expect(page).to have_content("The page you were looking for doesn't exist")
   end
 
-it "should render a 404 when an unregistered uses visits an admin page" do
-  visit admin_dashboard_path
+  it "should render a 404 when an unregistered uses visits an admin page" do
+    visit admin_dashboard_path
 
-  expect(page).to have_content("The page you were looking for doesn't exist")
-end
+    expect(page).to have_content("The page you were looking for doesn't exist")
+  end
 
 end
