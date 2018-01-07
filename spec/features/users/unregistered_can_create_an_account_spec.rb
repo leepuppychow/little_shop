@@ -14,6 +14,7 @@ describe "unregistered user can create an account" do
 
       expect(current_path).to eq(new_user_path)
       fill_in "user[full_name]", with: "Killa Cam"
+      fill_in "user[address]", with: "123 Turing Way"
       fill_in "user[username]", with: "KillaCam"
       fill_in "user[password]", with: "password"
       click_on "Sign up"

@@ -28,8 +28,8 @@ describe "When a registered user visits the orders path" do
     expect(page).to have_content @order2.status
     expect(page).to have_content @order1.total_price
     expect(page).to have_content @order2.total_price
-    expect(page).to have_content @order1.address
-    expect(page).to have_content @order2.address
+    expect(page).to have_content @order1.user.address
+    expect(page).to have_content @order2.user.address
   end
 
 end

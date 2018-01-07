@@ -16,7 +16,7 @@ describe "An admin is logged in" do
       expect(page).to have_content(@order.created_at.strftime("%b %d, %Y"))
       expect(page).to have_content(@order.updated_at.strftime("%b %d, %Y"))
       expect(page).to have_content(@order.user.full_name)
-      expect(page).to have_content(@order.address)
+      expect(page).to have_content(@order.user.address)
       expect(page).to have_content "#{@item1.name} => Quantity: 2 || Subtotal: $200.00"
       expect(page).to have_content "#{@item2.name} => Quantity: 1 || Subtotal: $100.00"
       expect(page).to have_content "#{@item3.name} => Quantity: 1 || Subtotal: $100.00"
