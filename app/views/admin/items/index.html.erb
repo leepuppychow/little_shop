@@ -1,0 +1,26 @@
+<h1> All Current Items </h1>
+
+<table>
+  <tr>
+    <th>Item Name</th>
+    <th>Item Description</th>
+    <th>Item Status</th>
+    <th>Edit Item</th>
+    <th>Retire/Reactivate</th>
+  </tr>
+<% @items.each do |item| %>
+  <tr>
+    <th><%=link_to item.name, item_path(item) %></th>
+    <th><%=item.description%></th>
+    <th><%=item.status%></th>
+    <th><%= link_to "Edit Item", edit_admin_item_path(item) %></th>
+    <th>
+      <% if item.status == "active" %>
+        <%= link_to "Retire Item", admin_item_path(item, retired: true), method: :patch %>
+      <% elsif item.status == "retired" %>
+        <%= link_to "Reactivate Item", admin_item_path(item, active: true), method: :patch %>
+      <% end  %>
+    </th>
+  </tr>
+<% end  %>
+</table>
