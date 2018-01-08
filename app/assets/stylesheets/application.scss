@@ -272,3 +272,13 @@ a {
     }
   }
 }
+
+table, th, td {
+ border: 1px solid black;
+ background-color: rgba(249, 245, 244, .7);
+ font-family: "Arial Narrow", Gadget, sans-serif;
+ }
+
+ th {
+   height: 20px;
+ }
