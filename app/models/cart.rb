@@ -19,7 +19,6 @@ class Cart
     contents[id.to_s] = (contents[id.to_s] || 0) + 1
   end
 
-
   def total_cost
     cart_items.map {|item, count| item.price * count}.sum
   end
