@@ -27,10 +27,11 @@ class Admin::ItemsController < Admin::BaseController
 
   def update
     @item = Item.find(params[:id])
-    if params[:retired]
-      retire_or_activate("retired")
-    elsif params[:active]
-      retire_or_activate("active")
+    if params[:update_item]
+      @item.status = params[:update_item]
+      @item.save
+      redirect_to admin_items_path
+      # redirect_to item_path(@item)
     elsif @item.update(item_params)
       flash[:notice] = "#{@item.name} was updated"
       redirect_to item_path(@item)
@@ -38,12 +39,6 @@ class Admin::ItemsController < Admin::BaseController
       @categories = Category.all
       render :edit
     end
-  end
-
-  def retire_or_activate(verdict)
-    @item.status = verdict
-    @item.save
-    redirect_to item_path(@item)
   end
 
   private

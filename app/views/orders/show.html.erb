@@ -15,5 +15,5 @@
 </table>
 
 <% @order.item_count_and_subtotals.each do |item, info| %>
-  <p><%= link_to item, item_path(item) %> => <%= info %></p>
+  <p><%= link_to item, item_path(Item.find_by(name: item)) %> => <%= info %></p>
 <% end %>
