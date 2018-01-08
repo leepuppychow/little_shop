@@ -23,13 +23,7 @@ class Order < ApplicationRecord
   end
 
   def self.user_count
-    # b = group(:user_id).count.keys.first
     group(:user_id).order("count_all DESC").limit(1).count.keys.first
-    # binding.pry
   end
-
-  # def self.user_with_most_orders
-  #   User.where(id: user_count).first
-  # end
 
 end
