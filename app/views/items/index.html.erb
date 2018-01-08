@@ -9,7 +9,7 @@
     <% if item.status == "active" %>
       <%= button_to "Add To Cart", cart_path(item_id: item.id) %>
     <% elsif item.status == "retired" %>
-      <p class="retired-button">Item Retired</p>
+      <p class="retired-button">--Item Retired--</p>
     <%end%>
   </div>
   <% end %>

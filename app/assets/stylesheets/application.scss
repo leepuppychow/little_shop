@@ -133,13 +133,18 @@ a {
 
 .retired-button {
   display: inline;
-  border: solid black 1px;
+  border: dotted black 1px;
   position: relative;
   bottom: 12px;
   font-family: none;
   font-size: 13px;
   padding: 1px 5px;
-  background-color: white;
+  background-color: #2F4F4F;
+  color: white;
+}
+
+.retired-button:hover {
+  background-color: #CD5C5C;
 }
 
 #item-container {
@@ -267,3 +272,13 @@ a {
     }
   }
 }
+
+table, th, tr{
+ border: 1px solid black;
+ background-color: rgba(250, 250, 250, .9);
+ font-family: "Arial Narrow", Gadget, sans-serif;
+ }
+
+ th {
+   height: 20px;
+ }
