@@ -13,6 +13,7 @@
     <th>Order Placed On</th>
     <th>Order Updated On</th>
     <th>Order Total Price</th>
+    <th>Change Order Status</th>
   </tr>
   <% @orders.each do |order| %>
   <tr>
@@ -21,6 +22,15 @@
     <th><%= order.created_at.strftime("%b %d, %Y") %></th>
     <th><%= order.updated_at.strftime("%b %d, %Y") %></th>
     <th><%= order.total_item_price %></th>
+    <th>
+      <% if order.status.downcase == "ordered"%>
+        <%= button_to "Mark as paid", admin_order_path(order, update_status: "Paid"), method: :patch %>
+        <%= button_to "Cancel order", admin_order_path(order, update_status: "Cancelled"), method: :patch %>
+      <% elsif order.status.downcase == "paid" %>
+        <%= button_to "Mark as completed", admin_order_path(order, update_status: "Completed"), method: :patch %>
+        <%= button_to "Cancel order", admin_order_path(order, update_status: "Cancelled"), method: :patch %>
+      <% end %>
+    </th>
   </tr>
   <% end %>
 

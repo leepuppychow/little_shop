@@ -30,5 +30,20 @@ describe "An admin is logged in" do
         expect(page).to have_content(@order3.total_item_price)
       end
     end
+
+    describe "admin changes the status of an order" do
+      it "order is changed from 'ordered' to 'paid'" do
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+        visit admin_dashboard_path
+
+        expect(page).to have_no_content("Paid")
+
+        click_button "Mark as paid"
+
+        expect(current_path).to eq(admin_dashboard_path)
+        expect(page).to have_content("Paid")
+      end
+    end
+
   end
 end
