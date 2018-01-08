@@ -40,7 +40,7 @@
   </div>
   <body>
     <% flash.each do |type, message| %>
-      <%= content_tag :div, message.html_safe, class: type %>
+      <%= content_tag :div, message.html_safe, class: "flash_message" %>
     <% end %>
 
     <%= yield %>
