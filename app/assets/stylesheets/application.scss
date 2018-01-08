@@ -229,3 +229,41 @@ a {
     left: 85%;
   }
 }
+
+#welcome-banner {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(211, 211, 211, .7);
+  border: solid black 5px;
+  align-items: center;
+  font-family: "Arial Black", Gadget, sans-serif;
+  margin: 50px 40px;
+  padding-bottom: 30px;
+  #welcome-header {
+    font-size: 25px;
+  }
+  #cover-photo {
+    height: 300px;
+    width: auto;
+    border: solid black 1px;
+  }
+  #welcome-text {
+    padding: 20px 150px;
+    font-size: 20px;
+  }
+  #login-shop-pair {
+    display: flex;
+    justify-content: space-between;
+    .title-page-button {
+      margin: 0 85px;
+      padding: 5px;
+      color: black;
+      border: solid 3px black;
+      transition-duration: 1.0s;
+    }
+    .title-page-button:hover {
+      color: rgba(211, 211, 211, .7);
+      background-color: black;
+    }
+  }
+}
