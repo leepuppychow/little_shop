@@ -1,5 +1,9 @@
 class Admin::ItemsController < Admin::BaseController
 
+  def index
+    @items = Item.all
+  end
+
   def new
     @item = Item.new
     @categories = Category.all
@@ -11,9 +15,24 @@ class Admin::ItemsController < Admin::BaseController
       flash[:notice] = "#{@item.name} was created"
       redirect_to item_path(@item)
     else
-      binding.pry
       @categories = Category.all
       render :new
+    end
+  end
+
+  def edit
+    @item = Item.find(params[:id])
+    @categories = Category.all
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      flash[:notice] = "#{@item.name} was updated"
+      redirect_to item_path(@item)
+    else
+      @categories = Category.all
+      render :edit
     end
   end
 

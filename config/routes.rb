@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     get '/edit', to: "users#edit"
     patch '/edit', to: "users#update"
     resources :orders, only: [:show]
-    resources :items, only: [:new, :create, :edit, :update]
+    resources :items, only: [:index, :new, :create, :edit, :update]
   end
 
   get "/:category_slug", to: "categories#show"
