@@ -29,6 +29,10 @@ describe "An admin is logged in" do
         expect(page).to have_content(@order3.status)
         expect(page).to have_content(@order3.total_item_price)
       end
+      expect(page).to have_content("Order Count by Status")
+      expect(page).to have_content("#{@order1.status} 1")
+      expect(page).to have_content("#{@order2.status} 1")
+      expect(page).to have_content("#{@order3.status} 1")
     end
 
     describe "admin changes the status of an order" do
@@ -44,6 +48,5 @@ describe "An admin is logged in" do
         expect(page).to have_content("Paid")
       end
     end
-
   end
 end

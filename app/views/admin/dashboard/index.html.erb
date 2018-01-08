@@ -33,5 +33,17 @@
     </th>
   </tr>
   <% end %>
-
+</table>
+<h3>Order Count by Status</h3>
+<table class="order-status-table">
+  <tr>
+    <th>Order Status</th>
+    <th>Order Count</th>
+  </tr>
+  <% @orders_by_status.each do |status, count|%>
+  <tr>
+    <th><%= status %></th>
+    <th><%= count %></th>
+  </tr>
+  <% end %>
 </table>
