@@ -48,5 +48,30 @@ describe "An admin is logged in" do
         expect(page).to have_content("Paid")
       end
     end
+
+    describe "admin selects a status from the filter" do
+      it "only sees orders with that status" do
+        @order2.status = "Ordered"
+        @order2.save
+        allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+        visit admin_dashboard_path
+
+        select "Ordered", :from => "status"
+        click_button "Submit"
+
+          within '.order-table' do
+            expect(page).to have_content(@order1.id)
+            expect(page).to have_content(@order1.status)
+            expect(page).to have_content(@order1.total_item_price)
+            expect(page).to have_content(@order2.id)
+            expect(page).to have_content(@order2.status)
+            expect(page).to have_content(@order2.total_item_price)
+            expect(page).to have_no_content(@order3.id)
+            expect(page).to have_no_content(@order3.status)
+            expect(page).to have_no_content(@order3.total_item_price)
+          end
+
+      end
+    end
   end
 end

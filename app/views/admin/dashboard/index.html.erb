@@ -6,6 +6,12 @@
 <%= link_to "Item Index", admin_items_path %>
 
 <h3>All Orders</h3>
+<%= form_tag('/admin/filter', method: 'get') do %>
+  <%= label_tag "Filter By:" %>
+  <%= select_tag :status, options_for_select(@statuses) %>
+  <%= submit_tag "Submit"%>
+<% end  %>
+
 <table class="order-table">
   <tr>
     <th>Order ID</th>
