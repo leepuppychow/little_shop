@@ -4,3 +4,24 @@
 
 <%= link_to "Analytics Dashboard", admin_analytics_dashboard_path %>
 <%= link_to "Item Index", admin_items_path %>
+
+<h3>All Orders</h3>
+<table class="order-table">
+  <tr>
+    <th>Order ID</th>
+    <th>Order Status</th>
+    <th>Order Placed On</th>
+    <th>Order Updated On</th>
+    <th>Order Total Price</th>
+  </tr>
+  <% @orders.each do |order| %>
+  <tr>
+    <th><%= link_to order.id, order_path(order) %></th>
+    <th><%= order.status %></th>
+    <th><%= order.created_at.strftime("%b %d, %Y") %></th>
+    <th><%= order.updated_at.strftime("%b %d, %Y") %></th>
+    <th><%= order.total_item_price %></th>
+  </tr>
+  <% end %>
+
+</table>

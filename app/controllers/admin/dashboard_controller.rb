@@ -1,6 +1,7 @@
 class Admin::DashboardController < Admin::BaseController
 
   def index
-  end 
+    @orders = Order.all
+  end
 
 end
