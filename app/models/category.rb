@@ -4,7 +4,7 @@ class Category < ApplicationRecord
   has_many :items
 
   def self.highest_priced_item_per_category
-    joins(:items).group(:name).maximum(:price) 
+    joins(:items).group(:name).maximum(:price)
   end
 
 
