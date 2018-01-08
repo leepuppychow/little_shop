@@ -26,7 +26,7 @@ describe "As an admin, when I visit /admin/dashboard" do
       expect(page).to have_content "Reactivate Item"
     end
 
-    it "can then click on Edit Item" do
+    it "can retire an active item" do
       admin = create(:user, role: 1)
       item1 = create(:item, status: "active")
       category = create(:category)
@@ -34,17 +34,26 @@ describe "As an admin, when I visit /admin/dashboard" do
 
       visit admin_items_path
 
-      click_on "Edit Item"
-
-      expect(current_path).to eq edit_admin_item_path(item1)
-
-      fill_in "item[name]", with: "New Item"
-      fill_in "item[description]", with: "ok cool"
-      click_on "Update Item"
+      click_on "Retire Item"
 
       expect(current_path).to eq item_path(item1)
-      expect(page).to have_content "New Item"
-      expect(page).to have_content "ok cool"
+      expect(page).to have_content "Retired"
+      expect(page).to have_content item1.name
+    end
+
+    it "can reactivate a retired item" do
+      admin = create(:user, role: 1)
+      item1 = create(:item, status: "retired")
+      category = create(:category)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+
+      visit admin_items_path
+
+      click_on "Reactivate Item"
+
+      expect(current_path).to eq item_path(item1)
+      expect(page).to have_button "Add To Cart"
+      expect(page).to have_content item1.name
     end
   end
 end

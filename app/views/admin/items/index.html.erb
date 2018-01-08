@@ -16,9 +16,9 @@
     <th><%= link_to "Edit Item", edit_admin_item_path(item) %></th>
     <th>
       <% if item.status == "active" %>
-        <%= link_to "Retire Item", admin_item_path(item, item.status = "retired"), method: :patch %>
+        <%= link_to "Retire Item", admin_item_path(item, retired: true), method: :patch %>
       <% elsif item.status == "retired" %>
-        <%= link_to "Reactivate Item", admin_item_path(item, item.status =  "active"), method: :patch %>
+        <%= link_to "Reactivate Item", admin_item_path(item, active: true), method: :patch %>
       <% end  %>
     </th>
   </tr>
