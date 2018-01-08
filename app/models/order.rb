@@ -27,7 +27,7 @@ class Order < ApplicationRecord
   end
 
   def self.grouped_by_status_count
-    group(:status).count 
+    group(:status).count
   end
 
 end
