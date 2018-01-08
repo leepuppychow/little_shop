@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>Item Image</th>
     <th>Item Name</th>
     <th>Item Description</th>
     <th>Item Status</th>
@@ -10,6 +11,11 @@
   </tr>
 <% @items.each do |item| %>
   <tr>
+    <th>
+      <%= link_to item_path(item) do %>
+        <%= image_tag "#{item.image}", class: "cart-image" %>
+      <% end %>
+  </th>
     <th><%=link_to item.name, item_path(item) %></th>
     <th><%=item.description%></th>
     <th><%=item.status%></th>

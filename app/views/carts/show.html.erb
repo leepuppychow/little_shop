@@ -1,6 +1,9 @@
 <h1>My Cart</h1>
 
 <div id="cart-view">
+  <% if @items.empty?  %>
+    <p class="empty-cart">Your cart is empty</p>
+  <% else %>
     <% @items.each do |item, count| %>
     <div id="cart-item">
       <% if count > 0 %>
@@ -33,19 +36,20 @@
           </div>
         <%= link_to "Remove Item", cart_path(item_id: item.id), method: :delete %>
       </div>
-      <% else %>
-        <% @cart.remove_item(item.id) %>
-      <% end %>
-    </div>
+        <% else %>
+          <% @cart.remove_item(item.id) %>
+        <% end %>
+      </div>
     <% end %>
     <div id="total-cost">
       Total Cost: <%= number_to_currency(@cart.total_cost) %>
+      <div id="checkout">
+        <% if current_user %>
+          <%= link_to "Checkout", orders_path, method: :post %>
+          <% else %>
+          <%= link_to "Login or Create Account to Checkout", login_path %>
+        <% end %>
+      </div>
     </div>
-    <div id="checkout">
-      <% if current_user %>
-        <%= link_to "Checkout", orders_path, method: :post %>
-      <% else %>
-        <%= link_to "Login or Create Account to Checkout", login_path %>
-      <% end %>
-    </div>
+  <% end %>
 </div>
