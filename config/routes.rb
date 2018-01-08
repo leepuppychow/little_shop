@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     get '/dashboard', to: "dashboard#index"
     get '/edit', to: "users#edit"
     patch '/edit', to: "users#update"
+    get '/analytics-dashboard', to: "analytics#index"
     resources :orders, only: [:show]
     resources :items, only: [:index, :new, :create, :edit, :update]
   end

@@ -22,4 +22,8 @@ class Order < ApplicationRecord
     items.sum(:price)
   end
 
+  def self.user_count
+    group(:user_id).order("count_all DESC").limit(1).count.keys.first
+  end
+
 end
