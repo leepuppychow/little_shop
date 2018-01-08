@@ -2,7 +2,6 @@
 
 <p><%= @user.user_with_most_orders.username %> has the most orders with <%= @user.user_with_most_orders.orders.count %></p>
 
-<% @categories.each do |category| %>
-  <%= category.highest_priced_item_per_category %>
-  <%= category.highest_priced_item_per_category.name %>
+<% @categories.each do |category, price| %>
+  <p>Highest priced item for <%= category %>: <%= number_to_currency(price) %></p>
 <% end %>
