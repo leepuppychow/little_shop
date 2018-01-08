@@ -2,7 +2,7 @@ class Admin::DashboardController < Admin::BaseController
 
   def index
     if params[:status] == "All" || !params[:status]
-      @orders = Order.all
+      @orders = Order.ordered_by_id
     else
       @orders = Order.where(status: params[:status])
     end
