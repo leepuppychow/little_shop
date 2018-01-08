@@ -1,3 +1,8 @@
 <h1>Analytics Dashboard</h1>
 
-<p><%= @user.user_with_most_orders.username %> has the most orders with <%= @user.user_with_most_orders.orders.count %></p> 
+<p><%= @user.user_with_most_orders.username %> has the most orders with <%= @user.user_with_most_orders.orders.count %></p>
+
+<% @categories.each do |category| %>
+  <%= category.highest_priced_item_per_category %>
+  <%= category.highest_priced_item_per_category.name %>
+<% end %>
