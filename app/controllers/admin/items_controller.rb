@@ -31,7 +31,6 @@ class Admin::ItemsController < Admin::BaseController
       @item.status = params[:update_item]
       @item.save
       redirect_to admin_items_path
-      # redirect_to item_path(@item)
     elsif @item.update(item_params)
       flash[:notice] = "#{@item.name} was updated"
       redirect_to item_path(@item)
