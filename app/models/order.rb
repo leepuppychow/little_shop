@@ -26,4 +26,8 @@ class Order < ApplicationRecord
     group(:user_id).order("count_all DESC").limit(1).count.keys.first
   end
 
+  def self.grouped_by_status_count
+    group(:status).count 
+  end
+
 end
