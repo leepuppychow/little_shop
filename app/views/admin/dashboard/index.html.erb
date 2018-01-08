@@ -4,3 +4,52 @@
 
 <%= link_to "Analytics Dashboard", admin_analytics_dashboard_path %>
 <%= link_to "Item Index", admin_items_path %>
+
+<h3>All Orders</h3>
+<%= form_tag('/admin/filter', method: 'get') do %>
+  <%= label_tag "Filter By:" %>
+  <%= select_tag :status, options_for_select(@statuses) %>
+  <%= submit_tag "Submit"%>
+<% end  %>
+
+<table class="order-table">
+  <tr>
+    <th>Order ID</th>
+    <th>Order Status</th>
+    <th>Order Placed On</th>
+    <th>Order Updated On</th>
+    <th>Order Total Price</th>
+    <th>Change Order Status</th>
+  </tr>
+  <% @orders.each do |order| %>
+  <tr>
+    <th><%= link_to order.id, order_path(order) %></th>
+    <th><%= order.status %></th>
+    <th><%= order.created_at.strftime("%b %d, %Y") %></th>
+    <th><%= order.updated_at.strftime("%b %d, %Y") %></th>
+    <th><%= order.total_item_price %></th>
+    <th>
+      <% if order.status.downcase == "ordered"%>
+        <%= button_to "Mark as paid", admin_order_path(order, update_status: "Paid"), method: :patch %>
+        <%= button_to "Cancel order", admin_order_path(order, update_status: "Cancelled"), method: :patch %>
+      <% elsif order.status.downcase == "paid" %>
+        <%= button_to "Mark as completed", admin_order_path(order, update_status: "Completed"), method: :patch %>
+        <%= button_to "Cancel order", admin_order_path(order, update_status: "Cancelled"), method: :patch %>
+      <% end %>
+    </th>
+  </tr>
+  <% end %>
+</table>
+<h3>Order Count by Status</h3>
+<table class="order-status-table">
+  <tr>
+    <th>Order Status</th>
+    <th>Order Count</th>
+  </tr>
+  <% @orders_by_status.each do |status, count|%>
+  <tr>
+    <th><%= status %></th>
+    <th><%= count %></th>
+  </tr>
+  <% end %>
+</table>
