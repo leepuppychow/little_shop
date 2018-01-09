@@ -229,8 +229,7 @@ a {
     }
   }
   #checkout {
-    position:relative;
-    left: 85%;
+    width: 220px;
   }
 }
 
@@ -272,6 +271,18 @@ a {
   }
 }
 
+.flash_message {
+  font-size: 28px;
+  text-align: center;
+  border: 1px solid black;
+  background-color: white;
+}
+
+.empty-cart {
+  font-size: 28px;
+  font-weight: bolder;
+  text-align: center;
+}
 table, th, tr{
  border: 1px solid black;
  background-color: rgba(250, 250, 250, .9);

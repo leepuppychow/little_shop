@@ -36,8 +36,8 @@ describe "As an admin, when I visit /admin/dashboard" do
 
       click_on "Retire Item"
 
-      expect(current_path).to eq item_path(item1)
-      expect(page).to have_content "Retired"
+      expect(current_path).to eq admin_items_path
+      expect(page).to have_content "retired"
       expect(page).to have_content item1.name
     end
 
@@ -51,8 +51,7 @@ describe "As an admin, when I visit /admin/dashboard" do
 
       click_on "Reactivate Item"
 
-      expect(current_path).to eq item_path(item1)
-      expect(page).to have_button "Add To Cart"
+      expect(current_path).to eq admin_items_path
       expect(page).to have_content item1.name
     end
   end

@@ -2,6 +2,7 @@
 
 <table>
   <tr>
+    <th>Item Image</th>
     <th>Item Name</th>
     <th>Item Description</th>
     <th>Item Status</th>
@@ -10,15 +11,20 @@
   </tr>
 <% @items.each do |item| %>
   <tr>
+    <th>
+      <%= link_to item_path(item) do %>
+        <%= image_tag "#{item.image}", class: "cart-image" %>
+      <% end %>
+  </th>
     <th><%=link_to item.name, item_path(item) %></th>
     <th><%=item.description%></th>
     <th><%=item.status%></th>
     <th><%= link_to "Edit Item", edit_admin_item_path(item) %></th>
     <th>
       <% if item.status == "active" %>
-        <%= link_to "Retire Item", admin_item_path(item, retired: true), method: :patch %>
+        <%= link_to "Retire Item", admin_item_path(item, update_item: "retired"), method: :patch %>
       <% elsif item.status == "retired" %>
-        <%= link_to "Reactivate Item", admin_item_path(item, active: true), method: :patch %>
+        <%= link_to "Reactivate Item", admin_item_path(item, update_item: "active"), method: :patch %>
       <% end  %>
     </th>
   </tr>
