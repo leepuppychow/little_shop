@@ -41,7 +41,11 @@ describe "when an admin visits the admin dashboard" do
   it "should show when the highest priced item for each category and orders for that category" do
     visit admin_analytics_dashboard_path
 
-    expect(page).to have_content("Highest priced item for #{@category1.name}: $#{@item1.price}")
-    expect(page).to have_content("Highest priced item for #{@category2.name}: $#{@item3.price}")
+    expect(page).to have_content @category1.highest_priced_item.name
+    expect(page).to have_content @category2.highest_priced_item.name
+    expect(page).to have_content @category1.highest_priced_item.price
+    expect(page).to have_content @category2.highest_priced_item.price
+
+    save_and_open_page
   end
 end
