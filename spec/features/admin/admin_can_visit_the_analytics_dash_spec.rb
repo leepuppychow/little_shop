@@ -3,6 +3,7 @@ require 'rails_helper'
 describe "when an admin visits the admin dashboard" do
   before :each do
     @admin = create(:user, role: 1)
+    @user = create(:user)
     @category1 = create(:category)
     @category2 = create(:category, name: "Jedi")
     @item1 = create(:item, category: @category1, price: 600.0)
@@ -13,8 +14,12 @@ describe "when an admin visits the admin dashboard" do
     @order1 = create(:order, user: @admin)
     @order2 = create(:order, user: @admin)
     @order3 = create(:order, user: @admin)
-    @user = create(:user)
     @order4 = create(:order, user: @user)
+
+    @order1.items << [@item1, @item2, @item3]
+    @order2.items << [@item1, @item1, @item3, @item4, @item4]
+    @order3.items << [@item1, @item2, @item3, @item4, @item5]
+    @order4.items << [@item2,@item2,@item5,@item5,@item5]
     allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@admin)
   end
 
