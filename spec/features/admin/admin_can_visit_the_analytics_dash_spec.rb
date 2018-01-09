@@ -16,7 +16,7 @@ describe "when an admin visits the admin dashboard" do
     @order3 = create(:order, user: @admin)
     @order4 = create(:order, user: @user)
 
-    @order1.items << [@item1, @item2, @item3]
+    @order1.items << [@item1, @item2]
     @order2.items << [@item1, @item1, @item3, @item4, @item4]
     @order3.items << [@item1, @item2, @item3, @item4, @item5]
     @order4.items << [@item2,@item2,@item5,@item5,@item5]
@@ -41,7 +41,17 @@ describe "when an admin visits the admin dashboard" do
   it "should show when the highest priced item for each category and orders for that category" do
     visit admin_analytics_dashboard_path
 
-    expect(page).to have_content("Highest priced item for #{@category1.name}: $#{@item1.price}")
-    expect(page).to have_content("Highest priced item for #{@category2.name}: $#{@item3.price}")
+    expect(page).to have_content @category1.highest_priced_item.name
+    expect(page).to have_content @category2.highest_priced_item.name
+    expect(page).to have_content @category1.highest_priced_item.price
+    expect(page).to have_content @category2.highest_priced_item.price
+  end
+
+  it "should show breakdown number of orders per category" do
+    visit admin_analytics_dashboard_path
+
+    expect(page).to have_content "Orders per category"
+    expect(page).to have_content @category1.number_of_orders_for_category
+    expect(page).to have_content @category2.number_of_orders_for_category
   end
 end

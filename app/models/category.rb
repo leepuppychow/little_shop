@@ -3,15 +3,17 @@ class Category < ApplicationRecord
   validates :name, presence: true
   has_many :items
 
-  def self.highest_priced_item_per_category
-    joins(:items).group(:name).maximum(:price)
-    # binding.pry
+  has_many :order_items, through: :items
+  has_many :orders, through: :order_items
+
+  def highest_priced_item
+    max_price = items.maximum(:price)
+    items.find_by(price: max_price)
   end
 
-  def number_of_orders_for_each_category
-
+  def number_of_orders_for_category
+    orders.distinct.count
   end
-
 
   private
 
