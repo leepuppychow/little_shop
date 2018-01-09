@@ -7,12 +7,14 @@
     <th>Category Name</th>
     <th>Highest Priced Item</th>
     <th>Item Price</th>
+    <th>Orders per category</th>
   </tr>
 <% @categories.each do |category| %>
   <tr>
     <th><%= category.name %></th>
     <th><%= category.highest_priced_item.name %></th>
     <th><%= category.highest_priced_item.price %></th>
+    <th><%= category.number_of_orders_for_category %></th>
   </tr>
 <% end %>
 
