@@ -29,6 +29,10 @@ class Admin::ItemsController < Admin::BaseController
     @item = Item.find(params[:id])
     if params[:update_item]
       @item.status = params[:update_item]
+      if @item.status == "retired"
+        # binding.pry
+        @item.retired_count += 1
+      end
       @item.save
       redirect_to admin_items_path
     elsif @item.update(item_params)

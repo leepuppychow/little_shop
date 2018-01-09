@@ -6,5 +6,6 @@ FactoryBot.define do
     image "https://i.pinimg.com/originals/d7/9f/d5/d79fd50d3eb1c1e6cb0af809560b81de.png"
     category
     status "active"
+    retired_count 0
   end
 end
