@@ -33,7 +33,7 @@ class Order < ApplicationRecord
   end
 
   def self.order_by_state_count
-    b = find_where_completed.joins(:user).group(:state).count
+    find_where_completed.joins(:user).group(:state).count
   end
 
 end

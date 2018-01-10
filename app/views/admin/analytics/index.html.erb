@@ -42,7 +42,9 @@
     <th>Completed Orders</th>
   </tr>
   <% @orders.each do |state, order_count| %>
-    <%= state %>
-    <%= order_count %>
+  <tr>
+    <th><%= state %></th>
+    <th><%= order_count %></th>
+  </tr>
   <% end %>
 </table>
