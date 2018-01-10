@@ -5,5 +5,6 @@ FactoryBot.define do
     full_name "Fake Name"
     address "123 Turing Way"
     role 0
+    state "CO"
   end
 end

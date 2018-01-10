@@ -3,7 +3,7 @@ require 'rails_helper'
 describe "when an admin visits the admin dashboard" do
   before :each do
     @admin = create(:user, role: 1)
-    @user = create(:user)
+    @user = create(:user, state: "CA")
     @category1 = create(:category)
     @category2 = create(:category, name: "Jedi")
     @item1 = create(:item, category: @category1, price: 600.0)
@@ -11,10 +11,10 @@ describe "when an admin visits the admin dashboard" do
     @item3 = create(:item, category: @category2, price: 700.0)
     @item4 = create(:item, category: @category2)
     @item5 = create(:item, category: @category2)
-    @order1 = create(:order, user: @admin)
+    @order1 = create(:order, user: @admin, status: "Completed")
     @order2 = create(:order, user: @admin)
-    @order3 = create(:order, user: @admin)
-    @order4 = create(:order, user: @user)
+    @order3 = create(:order, user: @admin, status: "Completed")
+    @order4 = create(:order, user: @user, status: "Completed")
 
     @order1.items << [@item1, @item2]
     @order2.items << [@item1, @item1, @item3, @item4, @item4]
@@ -53,5 +53,16 @@ describe "when an admin visits the admin dashboard" do
     expect(page).to have_content "Orders per category"
     expect(page).to have_content @category1.number_of_orders_for_category
     expect(page).to have_content @category2.number_of_orders_for_category
+  end
+
+  it "should show a state by state breakdown of completed orders and sort by state" do
+    visit admin_analytics_dashboard_path
+
+    expect(page).to have_content "Orders by State"
+
+    within ".orders_by_state" do
+      expect(page).to have_content "CO"
+      expect(page).to have_content "2"
+    end
   end
 end

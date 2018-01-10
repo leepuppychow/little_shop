@@ -6,5 +6,4 @@ class Item < ApplicationRecord
   has_many :orders, through: :order_items
   scope :ordered_by_retired_count, -> {order("retired_count DESC")}
 
-
 end

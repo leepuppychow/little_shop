@@ -4,6 +4,7 @@ class Admin::AnalyticsController < Admin::BaseController
     @user = current_user
     @categories = Category.all
     @items = Item.ordered_by_retired_count
+    @orders = Order.order_by_state_count
   end
 
 end

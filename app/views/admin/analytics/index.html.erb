@@ -34,3 +34,15 @@
     </tr>
   <% end %>
 </table>
+
+<p>Orders by State</p>
+<table class="orders_by_state">
+  <tr>
+    <th>State</th>
+    <th>Completed Orders</th>
+  </tr>
+  <% @orders.each do |state, order_count| %>
+    <%= state %>
+    <%= order_count %>
+  <% end %>
+</table>
