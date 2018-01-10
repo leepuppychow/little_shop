@@ -6,14 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Item.delete_all
+User.delete_all
 Category.delete_all
 Order.delete_all
-User.delete_all
+Item.delete_all
 
-user1 = User.create!(username: "KillaCam", password: "password", full_name: "Killa Cam", address: "123 here")
-user2 = User.create!(username: "Admin", password: "adminpassword", role: 1, full_name: "Admin", address: "123 here")
-user3 = User.create!(username: "Alex", password: "password", full_name: "Alex", address: "123 here")
+user1 = User.create!(username: "KillaCam", password: "password", full_name: "Killa Cam", address: "123 here", state: "NY")
+user2 = User.create!(username: "Admin", password: "adminpassword", role: 1, full_name: "Admin", address: "123 here", state: "CO")
+user3 = User.create!(username: "Alex", password: "password", full_name: "Alex", address: "123 here", state: "CO")
 
 category1 = Category.create!(name: "Jedi Padawan")
 category2 = Category.create!(name: "Jedi Master")
@@ -26,7 +26,10 @@ item3 = Item.create!(name: "Darth Maul's Lightsaber", description: "Maul used th
 item4 = Item.create!(name: "Mace Windu's Lightsaber", description: "One of the most distinctive lightsabers in the Jedi Order due to its amethyst plasma blade, Windu would carry this weapon into battle on multiple occasions during the Clone Wars in which he served as a Jedi General in the Grand Army of the Republic. The lightsaber was ultimately lost during a confrontation between Windu and the Sith Lord Darth Sidious, who then killed the Jedi Order's champion through the use of Force lightning.", price: 700, image: "https://pm1.narvii.com/6214/1f2e654d21fa99e5ec4db0dec13ee89b9fe8441a_hq.jpg", status: "retired", category: category2)
 item5 = Item.create!(name: "Training Lightsaber", description: "Training lightsabers were most often used by Jedi younglings before they underwent the Gathering and built a weapon of their own. It was also possible for normal lightsabers to be tuned down so they could be used in this fashion. Anakin Skywalker killed a bunch of younglings and all they had were these tiny lighsabers for self defense that's why they died.", price: 100, image: "http://www.l-ateliergourmand.com/thumbnail/r/ro-lightsabers-anakin-padawan-lightsaber-2.jpeg", category: category1, status: "active")
 
+
 order1 = Order.create(status: "Completed", total_price: 100.00, created_at: Date.today, updated_at: Date.today, user: user1)
 order2 = Order.create(status: "Paid", total_price: 500.00, created_at: Date.today, updated_at: Date.today, user: user1)
+order1.items << [item2, item2, item5]
+order2.items << [item2, item3, item3]
 
 puts "Seed complete!"
