@@ -1,6 +1,6 @@
 
 class Item < ApplicationRecord
-  validates :description, :price, :status, presence: true
+  validates :description, :price, :status, :image, presence: true
   validates :name, presence: true, uniqueness: true
   validates :image, format: {with: /\.(png|jpg)\Z/i}
   belongs_to :category

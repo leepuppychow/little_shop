@@ -29,7 +29,7 @@ class Admin::ItemsController < Admin::BaseController
   def update
     @item = Item.find(params[:id])
     if params[:update_item]
-      udpate_status(params[:update_item])
+      update_status(params[:update_item])
     elsif @item.update(item_params)
       flash[:notice] = "#{@item.name} was updated"
       redirect_to item_path(@item)
@@ -41,12 +41,12 @@ class Admin::ItemsController < Admin::BaseController
 
   def update_status(params)
     @item.status = params
-    retired_counter
+      retired_counter
     @item.save
     redirect_to admin_items_path
   end
 
-  def retired_counter(item)
+  def retired_counter
     if @item.status == "retired"
       @item.retired_count += 1
     end
