@@ -2,7 +2,8 @@
 
 <%= link_to "Edit Account Information", admin_edit_path %></br>
 <%= link_to "Analytics Dashboard", admin_analytics_dashboard_path %></br>
-<%= link_to "Item Index", admin_items_path %>
+<%= link_to "Item Index", admin_items_path %><br>
+<%= link_to "Create Item", new_admin_item_path %>
 
 <h3>All Orders</h3>
 <%= form_tag('/admin/filter', method: 'get') do %>
