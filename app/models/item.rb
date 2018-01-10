@@ -1,10 +1,17 @@
 class Item < ApplicationRecord
-  validates :description, :price, :image, :status, presence: true
+  validates :description, :price, :status, presence: true
   validates :name, presence: true, uniqueness: true
   belongs_to :category
   has_many :order_items
   has_many :orders, through: :order_items
   scope :ordered_by_retired_count, -> {order("retired_count DESC")}
   scope :ordered_by_id, -> {order(:id)}
+  before_save :default_image
+
+  def default_image
+    if self.image == ""
+      self.image = 'https://orig00.deviantart.net/d878/f/2008/264/4/3/kalin__s_jedi_lightsaber_by_cascador.jpg'
+    end
+  end
 
 end
