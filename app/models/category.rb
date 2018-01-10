@@ -2,7 +2,6 @@ class Category < ApplicationRecord
   before_save :generate_slug
   validates :name, presence: true
   has_many :items
-
   has_many :order_items, through: :items
   has_many :orders, through: :order_items
 
