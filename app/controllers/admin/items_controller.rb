@@ -52,8 +52,6 @@ class Admin::ItemsController < Admin::BaseController
     end
   end
 
-
-
   private
 
     def item_params
