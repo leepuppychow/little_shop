@@ -28,8 +28,14 @@ item5 = Item.create!(name: "Training Lightsaber", description: "Training lightsa
 
 
 order1 = Order.create(status: "Completed", total_price: 100.00, created_at: Date.today, updated_at: Date.today, user: user1)
-order2 = Order.create(status: "Paid", total_price: 500.00, created_at: Date.today, updated_at: Date.today, user: user1)
+order2 = Order.create(status: "Completed", total_price: 500.00, created_at: Date.today, updated_at: Date.today, user: user1)
+order3 = Order.create(status: "Completed", total_price: 100.00, created_at: Date.today, updated_at: Date.today, user: user2)
+order4 = Order.create(status: "Completed", total_price: 500.00, created_at: Date.today, updated_at: Date.today, user: user3)
+order5 = Order.create(status: "Completed", total_price: 500.00, created_at: Date.today, updated_at: Date.today, user: user1)
+
 order1.items << [item2, item2, item5]
 order2.items << [item2, item3, item3]
+order3.items << [item2, item5]
+order4.items << [item2, item3]
 
 puts "Seed complete!"

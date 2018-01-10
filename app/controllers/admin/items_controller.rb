@@ -2,6 +2,7 @@ class Admin::ItemsController < Admin::BaseController
 
   def index
     @items = Item.all
+    @items = Item.ordered_by_id
   end
 
   def new

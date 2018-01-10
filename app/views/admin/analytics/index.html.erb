@@ -48,3 +48,5 @@
   </tr>
   <% end %>
 </table>
+<%= button_to "Sort by Count", admin_analytics_dashboard_path(sort_by: "count") %>
+<%= button_to "Sort by State", admin_analytics_dashboard_path(sort_by: "state") %>

@@ -59,7 +59,6 @@ describe "when an admin visits the admin dashboard" do
     visit admin_analytics_dashboard_path
 
     expect(page).to have_content "Orders by State"
-
     within ".orders_by_state" do
       expect(page).to have_content "CO"
       expect(page).to have_content "2"

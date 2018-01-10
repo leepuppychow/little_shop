@@ -32,8 +32,12 @@ class Order < ApplicationRecord
     group(:status).count
   end
 
-  def self.order_by_state_count
+  def self.states_with_count_of_orders
     find_where_completed.joins(:user).group(:state).count
+  end
+
+  def self.states_with_count_of_orders_sorted_by_count
+    find_where_completed.joins(:user).group(:state).order("count_all DESC").count
   end
 
 end
