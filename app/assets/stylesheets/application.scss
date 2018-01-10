@@ -312,6 +312,19 @@ table, th, tr{
    align-items: center;
  }
 
+ .row-flexbox{
+   display: flex;
+   flex-flow: row wrap;
+   justify-content: space-around;
+   align-content: center;
+   width: 75%;
+ }
+
+ .admin-header-links{
+   display: flex;
+   justify-content: center;
+ }
+
  .category-heading{
    height: 50px;
    width: 400px;
@@ -358,6 +371,41 @@ table, th, tr{
      text-decoration: underline;
    }
  }
+.new-user-box, .login-box{
+  margin-top: 20px;
+  background-color: rgba(211, 211, 211, .7);
+  border: solid black 1px;
+  border-radius: 5%;
+  width: 250px;
+  height: auto;
+  h3{
+    text-align: center;
+    text-decoration: underline;
+  }
+  .create-account-link{
+    text-align: center;
+  }
+}
+.standard-box{
+  background-color: rgba(211, 211, 211, .7);
+  border: solid black 1px;
+  border-radius: 5%;
+  height: auto;
+  width: auto;
+  padding: 10px;
+}
+.admin-dashboard-box{
+  background-color: rgba(211, 211, 211, .7);
+  border: solid black 1px;
+  border-radius: 5%;
+  height: auto;
+  margin: 20px 200px;
+  padding: 10px;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
  #new-account-form, #create-item-form {
    background-color: rgba(211, 211, 211, .7);
    border: solid black 1px;
@@ -371,21 +419,5 @@ table, th, tr{
    margin-top: 20px;
    h3{
      text-decoration: underline;
-   }
- }
-
- .new-user-box, .login-box{
-   margin-top: 20px;
-   background-color: rgba(211, 211, 211, .7);
-   border: solid black 1px;
-   border-radius: 5%;
-   width: 250px;
-   height: auto;
-   h3{
-     text-align: center;
-     text-decoration: underline;
-   }
-   .create-account-link{
-     text-align: center;
    }
  }
