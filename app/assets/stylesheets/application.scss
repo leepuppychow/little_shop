@@ -310,29 +310,80 @@ table, th, tr{
    flex-flow: column wrap;
    justify-content: center;
    align-items: center;
-   .category-heading{
-     height: 50px;
-     width: 400px;
-     background-color: rgba(211, 211, 211, .7);
+ }
+
+ .category-heading{
+   height: 50px;
+   width: 400px;
+   background-color: rgba(211, 211, 211, .7);
+   text-align: center;
+   border: solid black 1px;
+   border-radius: 5%;
+ }
+ .category-box{
+   height: 100px;
+   width: 300px;
+   background-color: rgba(211, 211, 211, .7);
+   margin: 10px;
+   border: solid black 1px;
+   border-radius: 5%;
+   .category{
+     margin-top: 35px;
+     text-decoration: none;
+     font-size: 20px;
      text-align: center;
-     border: solid black 1px;
-     border-radius: 5%;
-   }
-   .category-box{
-     height: 100px;
-     width: 300px;
-     background-color: rgba(211, 211, 211, .7);
-     margin: 10px;
-     border: solid black 1px;
-     border-radius: 5%;
-     .category{
-       margin-top: 35px;
-       text-decoration: none;
-       font-size: 20px;
-       text-align: center;
-       a:hover{
-         font-size: 30px;
-       }
+     a:hover{
+       font-size: 30px;
      }
+   }
+ }
+ .submit-button{
+   margin-top: 10px;
+   font-size: 24px;
+   width:100px;
+ }
+ #create-account-form {
+   background-color: rgba(211, 211, 211, .7);
+   border: solid black 1px;
+   border-radius: 5%;
+   height: 350px;
+   width: 250px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   margin-top: 20px;
+   h3{
+     text-decoration: underline;
+   }
+ }
+ #new-account-form {
+   background-color: rgba(211, 211, 211, .7);
+   border: solid black 1px;
+   border-radius: 5%;
+   height: 250px;
+   width: 250px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   margin-top: 20px;
+   h3{
+     text-decoration: underline;
+   }
+ }
+
+ .new-user-box, .login-box{
+   margin-top: 20px;
+   background-color: rgba(211, 211, 211, .7);
+   border: solid black 1px;
+   border-radius: 5%;
+   width: 250px;
+   h3{
+     text-align: center;
+     text-decoration: underline;
+   }
+   .create-account-link{
+     text-align: center;
    }
  }
