@@ -1,4 +1,3 @@
-
 class Item < ApplicationRecord
   validates :description, :price, :status, :image, presence: true
   validates :name, presence: true, uniqueness: true
@@ -9,18 +8,6 @@ class Item < ApplicationRecord
   scope :ordered_by_retired_count, -> {order("retired_count DESC")}
   scope :ordered_by_id, -> {order(:id)}
   before_validation :default_image
-
-
-  # def validate_image
-  #   binding.pry
-  #   check_image(self.image)
-  # end
-  #
-  # def check_image(file)
-  #   FileMagic.open(:mime) do |fm|
-  #     fm.file(file)
-  #   end
-  # end
 
   def default_image
     if self.image == ""
