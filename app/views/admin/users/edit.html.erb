@@ -1,7 +1,11 @@
-<%= form_for @user, :url => admin_edit_path do |f| %>
+<div class="column-flexbox">
+<%= form_for @user, :url => admin_edit_path, html: {:id => "create-account-form"} do |f| %>
+  <h3>EDIT ACCOUNT</h3>
   <%= f.label :username %>
   <%= f.text_field :username %>
   <%= f.label :password %>
   <%= f.password_field :password %>
+  <br>
   <%= f.submit "Update Admin" %>
 <% end %>
+</div>

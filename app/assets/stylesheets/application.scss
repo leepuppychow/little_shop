@@ -394,6 +394,14 @@ table, th, tr{
   width: auto;
   padding: 10px;
 }
+.analytics-box{
+  background-color: white;
+  border: solid black 1px;
+  border-radius: 5%;
+  height: auto;
+  width: auto;
+  padding: 10px;
+}
 .admin-dashboard-box{
   background-color: rgba(211, 211, 211, .7);
   border: solid black 1px;
@@ -420,4 +428,9 @@ table, th, tr{
    h3{
      text-decoration: underline;
    }
+ }
+
+ #sort-buttons{
+   display: flex;
+   flex-direction: row;
  }

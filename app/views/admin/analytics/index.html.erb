@@ -1,52 +1,55 @@
 <h1>Analytics Dashboard</h1>
-<% if @user.user_with_most_orders %>
-  <p><%= @user.user_with_most_orders.username %> has the most orders with <%= @user.user_with_most_orders.orders.count %></p>
-<% end %>
-<table>
-  <tr>
-    <th>Category Name</th>
-    <th>Highest Priced Item</th>
-    <th>Item Price</th>
-    <th>Orders per category</th>
-  </tr>
-<% @categories.each do |category| %>
-  <tr>
-    <th><%= category.name %></th>
-    <th><%= category.highest_priced_item.name %></th>
-    <th><%= category.highest_priced_item.price %></th>
-    <th><%= category.number_of_orders_for_category %></th>
-  </tr>
-<% end %>
-
-</table>
-
-<table class="retired_analytics">
-  <tr>
-    <th>Item Name</th>
-    <th>Item Status</th>
-    <th>Item Total Retired Count</th>
-  </tr>
-  <% @items.each do |item| %>
+<div class="admin-dashboard-box">
+  <h3 class="analytics-box">Category Analytics</h3>
+  <table>
     <tr>
-      <th> <%= item.name %> </th>
-      <th> <%= item.status %> </th>
-      <th> <%= item.retired_count %> </th>
+      <th>Category Name</th>
+      <th>Highest Priced Item</th>
+      <th>Item Price</th>
+      <th>Orders per category</th>
+    </tr>
+  <% @categories.each do |category| %>
+    <tr>
+      <th><%= category.name %></th>
+      <th><%= category.highest_priced_item.name %></th>
+      <th><%= category.highest_priced_item.price %></th>
+      <th><%= category.number_of_orders_for_category %></th>
     </tr>
   <% end %>
-</table>
-
-<p>Orders by State</p>
-<table class="orders_by_state">
-  <tr>
-    <th>State</th>
-    <th>Completed Orders</th>
-  </tr>
-  <% @orders.each do |state, order_count| %>
-  <tr>
-    <th><%= state %></th>
-    <th><%= order_count %></th>
-  </tr>
+  </table>
+  <h3 class="analytics-box">Item Analytics</h3>
+  <table class="retired_analytics">
+    <tr>
+      <th>Item Name</th>
+      <th>Item Status</th>
+      <th>Item Total Retired Count</th>
+    </tr>
+    <% @items.each do |item| %>
+      <tr>
+        <th> <%= link_to item.name, item_path(item) %> </th>
+        <th> <%= item.status %> </th>
+        <th> <%= item.retired_count %> </th>
+      </tr>
+    <% end %>
+  </table>
+  <% if @user.user_with_most_orders %>
+    <h5 class="analytics-box"><%= @user.user_with_most_orders.username %> has the most orders with <%= @user.user_with_most_orders.orders.count %></h3>
   <% end %>
-</table>
-<%= button_to "Sort by Count", admin_analytics_dashboard_path(sort_by: "count") %>
-<%= button_to "Sort by State", admin_analytics_dashboard_path(sort_by: "state") %>
+  <h3 class="analytics-box">Orders by State</h3>
+  <table class="orders_by_state">
+    <tr>
+      <th>State</th>
+      <th>Completed Orders</th>
+    </tr>
+    <% @orders.each do |state, order_count| %>
+    <tr>
+      <th><%= state %></th>
+      <th><%= order_count %></th>
+    </tr>
+    <% end %>
+  </table>
+  <div id="sort-buttons">
+    <%= button_to "Sort by State", admin_analytics_dashboard_path(sort_by: "state") %>
+    <%= button_to "Sort by Count", admin_analytics_dashboard_path(sort_by: "count") %>
+  </div>
+</div>
