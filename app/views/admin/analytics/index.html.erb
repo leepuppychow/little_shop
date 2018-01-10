@@ -1,7 +1,7 @@
 <h1>Analytics Dashboard</h1>
-
-<p><%= @user.user_with_most_orders.username %> has the most orders with <%= @user.user_with_most_orders.orders.count %></p>
-
+<% if @user.user_with_most_orders %>
+  <p><%= @user.user_with_most_orders.username %> has the most orders with <%= @user.user_with_most_orders.orders.count %></p>
+<% end %>
 <table>
   <tr>
     <th>Category Name</th>
@@ -18,4 +18,33 @@
   </tr>
 <% end %>
 
+</table>
+
+<table class="retired_analytics">
+  <tr>
+    <th>Item Name</th>
+    <th>Item Status</th>
+    <th>Item Total Retired Count</th>
+  </tr>
+  <% @items.each do |item| %>
+    <tr>
+      <th> <%= item.name %> </th>
+      <th> <%= item.status %> </th>
+      <th> <%= item.retired_count %> </th>
+    </tr>
+  <% end %>
+</table>
+
+<p>Orders by State</p>
+<table class="orders_by_state">
+  <tr>
+    <th>State</th>
+    <th>Completed Orders</th>
+  </tr>
+  <% @orders.each do |state, order_count| %>
+  <tr>
+    <th><%= state %></th>
+    <th><%= order_count %></th>
+  </tr>
+  <% end %>
 </table>

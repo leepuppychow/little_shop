@@ -4,6 +4,7 @@ class Order < ApplicationRecord
   has_many :items, through: :order_items
   validates_presence_of :status, :total_price, :created_at, :updated_at
   scope :ordered_by_id, -> {order(:id)}
+  scope :find_where_completed, -> {where(status: "Completed")}
 
   def item_count
     items.group(:id).count
@@ -29,6 +30,10 @@ class Order < ApplicationRecord
 
   def self.group_by_status_count
     group(:status).count
+  end
+
+  def self.order_by_state_count
+    find_where_completed.joins(:user).group(:state).count
   end
 
 end
