@@ -1,4 +1,4 @@
-# README
+# README: LITTLE SHOP (Lightsaber Emporium)
 
 ## PROJECT DESCRIPTION:
 * Final group project (Back-End Module 2 out of 4) for Turing School of Software Design. This project was created with Ruby on Rails as an online e-commerce platform to sell lightsabers and facilitate online ordering.
@@ -7,9 +7,10 @@
   * Utilizing TDD in developing a Rails application
   * Using a PORO for cart items
   * Implementing Authentication/Authorization
-  * Designing schema with one-to-many, and many-to-many relationships
+  * Designing schema with one-to-many and many-to-many relationships
   * Styling with SASS
   * Practicing agile workflow
+  * Deploying with Heroku
 
 ## DEVELOPERS:
   * Gabe Afflitto
