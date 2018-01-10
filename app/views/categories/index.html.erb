@@ -1,5 +1,9 @@
-<h2>All Lightsaber Categories</h2>
 
-<% @categories.each do |category| %>
-  <%= link_to category.name, category.slug %></br>
-<% end %>
+<div class="column-flexbox">
+  <h2 class="category-heading">All Lightsaber Categories</h2>
+  <% @categories.each do |category| %>
+    <div class="category-box">
+      <p class="category"><%= link_to category.name, category.slug %></p>
+    </div>
+  <% end %>
+</div>
