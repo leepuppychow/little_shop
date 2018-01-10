@@ -339,6 +339,7 @@ table, th, tr{
  }
  .submit-button{
    margin-top: 10px;
+   margin-bottom: 10px;
    font-size: 24px;
    width:100px;
  }
@@ -357,11 +358,11 @@ table, th, tr{
      text-decoration: underline;
    }
  }
- #new-account-form {
+ #new-account-form, #create-item-form {
    background-color: rgba(211, 211, 211, .7);
    border: solid black 1px;
    border-radius: 5%;
-   height: 250px;
+   height: auto;
    width: 250px;
    display: flex;
    flex-direction: column;
@@ -379,6 +380,7 @@ table, th, tr{
    border: solid black 1px;
    border-radius: 5%;
    width: 250px;
+   height: auto;
    h3{
      text-align: center;
      text-decoration: underline;
