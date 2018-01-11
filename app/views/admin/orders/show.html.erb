@@ -20,7 +20,7 @@
       </tr>
       <tr>
         <th>Order Total Item Count:</th>
-        <th><%= @order.items.count %></th>
+        <th><%= @order.total_item_count %></th>
       </tr>
       <tr>
         <th>User's Name:</th>
@@ -33,16 +33,14 @@
     </table>
     <h2 class="order-header-box">Item Breakdown</h2>
     <table>
-      <tr>
-        <th>Item Name</th>
-        <th>Item Information</th>
-      </tr>
-      <% @order.item_count_and_subtotals.each do |item, info| %>
+    <% @order.items.each do |item| %>
       <tr>
         <th><%= link_to item.name, item_path(item) %></th>
-        <th>Price: <%= item.price %> || <%= info %></th>
+        <th>Price: <%= number_to_currency(item.price) %></th>
+        <th>Quantity: <%= item.quantity_for_single_order(@order) %></th>
+        <th>Subtotal: <%= number_to_currency(item.subtotal_for_single_order(@order)) %></th>
       </tr>
-      <% end %>
+    <% end %>
     </table>
 
   </div>

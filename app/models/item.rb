@@ -14,4 +14,12 @@ class Item < ApplicationRecord
       self.image = 'https://orig00.deviantart.net/d878/f/2008/264/4/3/kalin__s_jedi_lightsaber_by_cascador.jpg'
     end
   end
+
+  def quantity_for_single_order(order)
+    order_items.where(order_id: order.id).sum(:quantity)
+  end
+
+  def subtotal_for_single_order(order)
+    order_items.where(order_id: order.id).sum(:sub_total)
+  end
 end

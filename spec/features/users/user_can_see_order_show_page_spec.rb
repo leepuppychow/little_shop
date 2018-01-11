@@ -19,13 +19,14 @@ describe "When an authenticated user visits the /orders path" do
     end
 
     it "should see each item for that order with quantity and subtotal" do
-      expect(page).to have_content "Price: 100.0 || Quantity: 2 || Subtotal: $200.00"
-      expect(page).to have_content "Price: 100.0 || Quantity: 1 || Subtotal: $100.00"
-      expect(page).to have_content "Price: 100.0 || Quantity: 1 || Subtotal: $100.00"
+      expect(page).to have_content @item1.price
+      expect(page).to have_content @item2.price
+      expect(page).to have_content @item3.price
+      expect(page).to have_content 2
+      expect(page).to have_content 1
     end
 
     it "should also see links for each item's show page" do
-      expect(find_link("#{@item1.name}").visible?).to eq true
       expect(find_link("#{@item2.name}").visible?).to eq true
       expect(find_link("#{@item3.name}").visible?).to eq true
     end
