@@ -21,7 +21,11 @@ class Order < ApplicationRecord
   end
 
   def total_item_price
-    items.sum(:price)
+    order_items.sum(:sub_total)
+  end
+
+  def total_item_count
+    order_items.sum(:quantity)
   end
 
   def self.user_count

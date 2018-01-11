@@ -1,44 +1,48 @@
-<h1>Order: <%= @order.id %></h1>
-<table>
-  <tr>
-    <th>Status</th>
-    <th><%= @order.status %></th>
-  </tr>
-  <tr>
-    <th>Order Placed On:</th>
-    <th><%= @order.created_at.strftime("%b %d, %Y") %></th>
-  </tr>
-  <tr>
-    <th>Order Updated On:</th>
-    <th><%= @order.updated_at.strftime("%b %d, %Y") %></th>
-  </tr>
-  <tr>
-    <th>Order Total Price:</th>
-    <th><%= number_to_currency(@order.total_item_price) %></th>
-  </tr>
-  <tr>
-    <th>Order Total Item Count:</th>
-    <th><%= @order.items.count %></th>
-  </tr>
-  <tr>
-    <th>User's Name:</th>
-    <th><%= @order.user.full_name %></th>
-  </tr>
-  <tr>
-    <th>User's Address:</th>
-    <th><%= @order.user.address %></th>
-  </tr>
-</table>
+<div class="order-show-page">
+  <div class="column-flexbox">
+    <h2 class="order-header-box">Order: <%= @order.id %></h2>
+    <table>
+      <tr>
+        <th>Status</th>
+        <th><%= @order.status %></th>
+      </tr>
+      <tr>
+        <th>Order Placed On:</th>
+        <th><%= @order.created_at.strftime("%b %d, %Y") %></th>
+      </tr>
+      <tr>
+        <th>Order Updated On:</th>
+        <th><%= @order.updated_at.strftime("%b %d, %Y") %></th>
+      </tr>
+      <tr>
+        <th>Order Total Price:</th>
+        <th><%= number_to_currency(@order.total_item_price) %></th>
+      </tr>
+      <tr>
+        <th>Order Total Item Count:</th>
+        <th><%= @order.total_item_count %></th>
+      </tr>
+      <tr>
+        <th>User's Name:</th>
+        <th><%= @order.user.full_name %></th>
+      </tr>
+      <tr>
+        <th>User's Address:</th>
+        <th><%= @order.user.address %></th>
+      </tr>
+    </table>
+    <h2 class="order-header-box">Item Breakdown</h2>
+    <table>
+    <% @order.items.each do |item| %>
+      <tr>
+        <th><%= link_to item.name, item_path(item) %></th>
+        <th>Price: <%= number_to_currency(item.price) %></th>
+        <th>Quantity: <%= item.quantity_for_single_order(@order) %></th>
+        <th>Subtotal: <%= number_to_currency(item.subtotal_for_single_order(@order)) %></th>
+      </tr>
+    <% end %>
+    </table>
 
-<table>
-  <tr>
-    <th>Item Name</th>
-    <th>Item Information</th>
-  </tr>
-<% @order.item_count_and_subtotals.each do |item, info| %>
-  <tr>
-    <th><%= link_to item.name, item_path(item) %></th>
-    <th>Price: <%= item.price %> || <%= info %></th>
-  </tr>
-<% end %>
-</table>
+  </div>
+
+</div>

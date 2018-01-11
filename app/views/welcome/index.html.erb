@@ -1,10 +1,10 @@
 <div id="welcome-banner">
   <div id="welcome-header">
-    <h1>Greetings Earthling!</h1>
+    <h1>Greetings Human!</h1>
   </div>
   <div id="welcome-text">
-    <p>Welcome to Grievous's Lightsaber Emporium!</p>
-    <p>Grievous was a Kaleesh cyborg general who held the title of Supreme Commander of the Droid Army during the Clone Wars. </p>
+    <p>Welcome to The General's Lightsaber Emporium!</p>
+    <p>General Grievous was a Kaleesh cyborg general who held the title of Supreme Commander of the Droid Army during the Clone Wars. </p>
     <p>Grievous was successful in defeating many of the Republic's Jedi Generals, even going so far as to maintain a collection of lightsabers taken from the Jedi he had slain.</p>
     <p>And now you can make The General's lightsaber collection you're own!!</p>
   </div>
@@ -12,9 +12,11 @@
     <div>
       <%= link_to "Shop Now!", items_path, class: "title-page-button" %>
     </div>
-    <div>
-      <%= link_to "Login/ Create Account!", login_path, class: "title-page-button"%>
-    </div>
+    <% if current_user.nil? %>
+      <div>
+        <%= link_to "Login/ Create Account!", login_path, class: "title-page-button"%>
+      </div>
+    <% end %>
   </div><br><br>
   <img id='cover-photo' src='https://orig00.deviantart.net/915c/f/2017/205/8/1/general_grievous_by_hessianforhire_d88zcsr_by_trident346-dbhk4ea.jpg'>
 </div>

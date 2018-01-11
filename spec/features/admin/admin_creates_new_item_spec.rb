@@ -9,7 +9,7 @@ describe "An admin is logged in" do
 
       visit new_admin_item_path
 
-      expect(page).to have_content("Create A New Item")
+      expect(page).to have_content("CREATE NEW ITEM")
 
       fill_in "item[name]", with: "ItemName"
       fill_in "item[description]", with: "Item Description"

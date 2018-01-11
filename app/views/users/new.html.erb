@@ -1,19 +1,20 @@
-<%= form_for @user do |f| %>
+<div class="column-flexbox">
+  <%= form_for @user, html: {id: "create-account-form" } do |f| %>
+    <h3>CREATE ACCOUNT</h3>
+    <div><%= f.label :full_name, class: "form-label" %></div>
+    <div><%= f.text_field :full_name %></div>
+    <div><%= f.label :username, class: "form-label" %></div>
+    <div><%= f.text_field :username %></div>
+    <div><%= f.label :password, class: "form-label" %></div>
+    <div><%= f.password_field :password %></div>
+    <div><%= f.label :address, class: "form-label" %></div>
+    <div><%= f.text_area :address %></div>
+    <div><%= f.label :state, class: "form-label" %></div>
+    <div><%= f.select :state, us_states %></div>
+    <div><%= f.submit "Sign up", class: "submit-button" %></div>
+  <% end %>
 
-  <%= f.label :full_name %>
-  <%= f.text_field :full_name %>
-
-  <%= f.label :username %>
-  <%= f.text_field :username %>
-
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <%= f.label :address %>
-  <%= f.text_field :address %>
-
-  <%= f.label :state %>
-  <%= f.select :state, us_states %>
-
-  <%= f.submit "Sign up" %>
-<% end %>
+  <div class="login-box">
+    <h3> <%= link_to "BACK TO LOGIN", login_path %></h3>
+  </div>
+</div>
