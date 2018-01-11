@@ -34,7 +34,10 @@ class Cart
 
   def create_order_items(order)
     contents.each do |item_id, quantity|
-      order_item = OrderItem.create!(order_id: order.id, item_id: item_id.to_i, original_price: Item.find(item_id.to_s).price, quantity: quantity)
+      order_item = OrderItem.create!(order_id: order.id,
+                                     item_id: item_id.to_i,
+                                     original_price: Item.find(item_id.to_s).price,
+                                     quantity: quantity)
       order_item.update(sub_total: order_item.original_price * order_item.quantity)
     end
   end
