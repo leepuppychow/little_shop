@@ -282,6 +282,18 @@ a {
   }
 }
 
+.user-page-button {
+  margin: 0 85px;
+  padding: 5px;
+  color: black;
+  border: solid 3px black;
+  transition-duration: 1.0s;
+}
+.user-page-button:hover {
+  color: rgba(211, 211, 211, .7);
+  background-color: black;
+}
+
 .flash_message {
   font-size: 28px;
   text-align: center;
@@ -434,3 +446,26 @@ table, th, tr{
    display: flex;
    flex-direction: row;
  }
+
+#user-show {
+  display: flex;
+  justify-content: center;
+
+ #user-block {
+   display: inline-flex;
+   flex-flow: column;
+   align-items: center;
+   align-self: center;
+   padding: 20px;
+   margin-top: 30px;
+   background-color: rgba(211, 211, 211, .7);
+   border: 2px solid black;
+   border-radius: 5%;
+
+ #login-shop-pair {
+   display: flex;
+   flex-flow: row;
+   margin-top: 10%;
+ }
+}
+}
