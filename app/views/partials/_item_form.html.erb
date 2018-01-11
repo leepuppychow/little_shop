@@ -1,0 +1,24 @@
+<div class="column-flexbox">
+  <%= form_for [:admin, @item], html: {id: "create-item-form"} do |f| %>
+  
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  <%= f.label :price %>
+  <%= f.number_field :price %>
+  <%= f.label :image, "Image URL"%>
+  <%= f.text_area :image %>
+  <%= f.label :category_id %>
+  <%= f.select :category_id, @categories.collect {|category| category.name} %>
+  <br>
+  <div>
+    <%= f.radio_button :status, 'active', :checked => true %>
+    <%= f.label :status, 'Active' %>
+    <%= f.radio_button :status, 'retired' %>
+    <%= f.label :status, 'Retired' %>
+  </div>
+  <br>
+    <%= f.submit class: "submit-button" %>
+  <% end %>
+</div>
