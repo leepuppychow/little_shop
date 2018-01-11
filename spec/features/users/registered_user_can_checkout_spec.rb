@@ -16,7 +16,7 @@ describe "a registered user can checkout an order" do
       click_on "Checkout"
 
       expect(current_path).to eq(orders_path)
-      expect(page).to have_content("#{Order.last.id}")
+      expect(page).to have_content(Order.last.id)
       expect(page).to have_content("Order was successfully placed")
       expect(page).to have_content(Order.last.total_item_price)
     end

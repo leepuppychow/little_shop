@@ -13,7 +13,7 @@ describe "authenticated user cannot view another persons data" do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user1)
 
       visit dashboard_path
-      expect(page).to have_content("Dashboard for #{@user1.username}")
+      expect(page).to have_content("Your Recent Orders")
 
       visit "/users/#{@user2.id}"
 

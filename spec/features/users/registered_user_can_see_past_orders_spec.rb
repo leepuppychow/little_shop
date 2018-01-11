@@ -21,9 +21,6 @@ describe "When a registered user visits the orders path" do
     click_on "Submit"
 
     expect(current_path).to eq dashboard_path
-    click_on "My Orders"
-
-    expect(current_path).to eq orders_path
     expect(page).to have_content @order1.status
     expect(page).to have_content @order2.status
     expect(page).to have_content @order1.total_item_price
