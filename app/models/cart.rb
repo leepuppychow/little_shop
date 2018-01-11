@@ -32,10 +32,14 @@ class Cart
   end
 
 
-  # def create_order_items(order)
-  #   contents.each do |item_id, quantity|
-  #     order_item = OrderItem.create(order_id: order.id, item_id: Item.find(params[:item_id]).id, original_price: Item.find(params[:item_id]).price)
-  #   end
-  # end
+  def create_order_items(order)
+    contents.each do |item_id, quantity|
+      order_item = OrderItem.create!(order_id: order.id,
+                                     item_id: item_id.to_i,
+                                     original_price: Item.find(item_id.to_s).price,
+                                     quantity: quantity)
+      order_item.update(sub_total: order_item.original_price * order_item.quantity)
+    end
+  end
 
 end

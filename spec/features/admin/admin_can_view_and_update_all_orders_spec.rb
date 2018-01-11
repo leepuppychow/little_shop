@@ -69,7 +69,6 @@ describe "An admin is logged in" do
             expect(page).to have_no_content(@order3.id)
             expect(page).to have_no_content(@order3.status)
           end
-
       end
     end
   end

@@ -25,7 +25,6 @@ describe "An admin is logged in" do
       expect(page).to have_content(Item.all.first.description)
       expect(page).to have_content(Item.all.first.price)
       expect(page).to have_button("Add To Cart")
-
     end
   end
 end
