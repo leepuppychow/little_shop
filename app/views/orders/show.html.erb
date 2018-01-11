@@ -1,7 +1,6 @@
-<div id="user-show">
-
-  <div id="user-block">
-    <h1>Order: <%= @order.id %></h1>
+<div class="order-show-page">
+  <div class="column-flexbox">
+    <h2>Order: <%= @order.id %></h1>
     <table>
       <tr>
         <th>Status</th>
@@ -17,19 +16,22 @@
       </tr>
       <tr>
         <th>Total Item Count:</th>
-        <th><%= @order.items.count %></th>
+        <th><%= @order.total_item_count %></th>
       </tr>
     </table>
-
     <table>
       <tr>
         <th>Item Name</th>
         <th>Item Information</th>
+        <th>Item Quantity</th>
+        <th>Item Subtotal</th>
       </tr>
-    <% @order.item_count_and_subtotals.each do |item, info| %>
+    <% @order.items.each do |item| %>
       <tr>
         <th><%= link_to item.name, item_path(item) %></th>
-        <th>Price: <%= item.price %> || <%= info %></th>
+        <th>Price: <%= number_to_currency(item.price) %></th>
+        <th>Quantity: <%= item.quantity_for_single_order(@order) %></th>
+        <th>Subtotal: <%= number_to_currency(item.subtotal_for_single_order(@order)) %></th>
       </tr>
     <% end %>
     </table>

@@ -12,9 +12,9 @@
   <tr>
     <th><%= link_to order.id, order_path(order), class: "order#{order.id}" %></th>
     <th><%= order.status %></th>
-    <th><%= number_to_currency(order.total_price) %></th>
+    <th><%= number_to_currency(order.total_item_price) %></th>
     <th><%= order.user.address %></th>
-    <th><%= order.items.count %></th>
+    <th><%= order.total_item_count %></th>
   </tr>
 <% end %>
 </table> -->

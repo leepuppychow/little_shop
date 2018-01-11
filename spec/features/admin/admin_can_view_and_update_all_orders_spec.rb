@@ -68,7 +68,6 @@ describe "An admin is logged in" do
             expect(page).to have_content(@order2.total_item_price)
             expect(page).to have_no_content(@order3.id)
             expect(page).to have_no_content(@order3.status)
-            expect(page).to have_no_content(@order3.total_item_price)
           end
 
       end
