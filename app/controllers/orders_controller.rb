@@ -11,6 +11,7 @@ class OrdersController < ApplicationController
     flash[:notice] = "Order was successfully placed"
     @cart.contents.clear
 
+    # redirect_to dashboard_path
     redirect_to orders_path
   end
 
