@@ -1,7 +1,6 @@
 class Item < ApplicationRecord
   validates :description, :price, :status, :image, presence: true
   validates :name, presence: true, uniqueness: true
-  validates :image, format: {with: /\.(png|jpg)\Z/i}
   belongs_to :category
   has_many :order_items
   has_many :orders, through: :order_items
