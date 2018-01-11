@@ -1,32 +1,37 @@
-<h1>Order: <%= @order.id %></h1>
-<table>
-  <tr>
-    <th>Status</th>
-    <th><%= @order.status %></th>
-  </tr>
-  <tr>
-    <th>Order Placed On:</th>
-    <th><%= @order.created_at.strftime("%b %d, %Y") %></th>
-  </tr>
-  <tr>
-    <th>Order Total Price:</th>
-    <th><%= number_to_currency(@order.total_item_price) %></th>
-  </tr>
-  <tr>
-    <th>Total Item Count:</th>
-    <th><%= @order.items.count %></th>
-  </tr>
-</table>
+<div id="user-show">
 
-<table>
-  <tr>
-    <th>Item Name</th>
-    <th>Item Information</th>
-  </tr>
-<% @order.item_count_and_subtotals.each do |item, info| %>
-  <tr>
-    <th><%= link_to item.name, item_path(item) %></th>
-    <th>Price: <%= item.price %> || <%= info %></th>
-  </tr>
-<% end %>
-</table>
+  <div id="user-block">
+    <h1>Order: <%= @order.id %></h1>
+    <table>
+      <tr>
+        <th>Status</th>
+        <th><%= @order.status %></th>
+      </tr>
+      <tr>
+        <th>Order Placed On:</th>
+        <th><%= @order.created_at.strftime("%b %d, %Y") %></th>
+      </tr>
+      <tr>
+        <th>Order Total Price:</th>
+        <th><%= number_to_currency(@order.total_item_price) %></th>
+      </tr>
+      <tr>
+        <th>Total Item Count:</th>
+        <th><%= @order.items.count %></th>
+      </tr>
+    </table>
+
+    <table>
+      <tr>
+        <th>Item Name</th>
+        <th>Item Information</th>
+      </tr>
+    <% @order.item_count_and_subtotals.each do |item, info| %>
+      <tr>
+        <th><%= link_to item.name, item_path(item) %></th>
+        <th>Price: <%= item.price %> || <%= info %></th>
+      </tr>
+    <% end %>
+    </table>
+  </div>
+</div>
